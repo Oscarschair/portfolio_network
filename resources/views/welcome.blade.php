@@ -50,7 +50,7 @@
         <div class="OSCSS-columns-col">
           <div class="OSCSS-columns-col-title"><p>Webデザイナー</p></div>
           <div class="OSCSS-columns-col-img"><img src="/img/Webデザイナー.png" width="100" height="100" alt="Webデザイナー"></div>
-          <div class="OSCSS-columns-col-desc"><p><span style="display: inline-block;">Webデザイナー</span>の活動において、ポートフォリオこそが最初に用意すべきで、作品はもちろん、センスも見えてくる。せっかく作ったもの、就職や面接の時に見せただけで役目を終わらせたくない。</p></div>
+          <div class="OSCSS-columns-col-desc"><p><span style="display: inline-block;">Webデザイナー</span>の活動において、ポートフォリオは欠かせません。作品はもちろん、センスも見えてくる。せっかく作ったポートフォリオ、就職や面接しただけで役目を終わらせたくない。</p></div>
           <a class="OSCSS-columns-btn" href="{{route('register')}}">今すぐ登録</a>
         </div>
         <div class="OSCSS-columns-col">
@@ -62,7 +62,7 @@
         <div class="OSCSS-columns-col">
           <div class="OSCSS-columns-col-title"><p>イラストレーター</p></div>
           <div class="OSCSS-columns-col-img"><img src="/img/イラストレーター.png" width="100" height="100" alt="イラストレーター"></div>
-          <div class="OSCSS-columns-col-desc"><p>2021年人気職業ランキング常に上位の<span style="display: inline-block;">イラストレーター</span>。雑誌表紙、挿し絵、書籍カバー、仕事は多岐にわたるが、SPOTが多い。作品をサイトにまとめ、次の仕事につなぎたい。</p></div>
+          <div class="OSCSS-columns-col-desc"><p>2021年人気職業ランキング常に上位の<span style="display: inline-block;">イラストレーター</span>。雑誌表紙、挿し絵、書籍カバー、仕事は多岐にわたるがSPOTが多い。作品をサイトにまとめ、次の仕事につなぎたい。</p></div>
           <a class="OSCSS-columns-btn" href="{{route('register')}}">今すぐ登録</a>
         </div>
         <div class="OSCSS-columns-col">
