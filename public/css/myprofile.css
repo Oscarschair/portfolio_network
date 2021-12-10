@@ -1,0 +1,139 @@
+.OSCSS-content-box-inner dl{
+  display: flex;
+  flex-flow: wrap;
+  margin-bottom: 20px;
+}
+.OSCSS-content-box-inner dt{
+  float: left;
+  width: 30%;
+  font-weight: bold;
+  position: relative;
+}
+.OSCSS-content-box-inner dd{
+  width: 70%;
+  margin: auto 0;
+  overflow-wrap: anywhere;
+}
+.OSCSS-content-box-inner dd input, .OSCSS-content-box-inner dd textarea{
+  width: 100%;
+}
+.OSCSS-content-box-inner .note{
+  font-size: 14px;
+  color: #bfbfbf;
+}
+@media screen and (max-width: 460px) {
+  .OSCSS-content-box-inner dt{
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .OSCSS-content-box-inner dd{
+    width: 100%;
+  }
+}
+.OSCSS-profile-icon{
+  width: 150px;
+  height: 150px;
+  border: #bfbfbf 2px solid;
+  border-radius: 50%;
+  margin: auto;
+}
+.OSCSS-profile-icon img {
+  border-radius: 50%;
+}
+.OSCSS-profile-revoke{
+  width: 100%;
+  text-align: right;
+}
+.OSCSS-subtitle{
+  width:100%;
+  font-size: 20px;
+  text-align: center;
+  background: #dadcff;
+  padding: 5px 0;
+  margin-bottom: 20px;
+}
+.OSCSS-profile-portfolio-list{
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.OSCSS-profile-portfolio-left{
+  width: 30%;
+  margin: 10px auto;
+}
+.OSCSS-profile-portfolio-pic{
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding: 8px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+.OSCSS-profile-portfolio-pic img{
+  position: relative;
+}
+.OSCSS-profile-portfolio-right{
+  width: 70%;
+  padding: 10px 0 20px 20px;
+  font-weight: 700;
+  display: flex;
+  flex-wrap: wrap;
+}
+.OSCSS-portfolio-table{
+  width: 100%;
+}
+.OSCSS-portfolio-table tr{
+  border: 8px #ffffff solid;
+}
+.OSCSS-portfolio-table td{
+  width: 20%;
+  vertical-align: top;
+}
+.OSCSS-portfolio-table td:nth-child(even){
+  width: 80%;
+}
+.OSCSS-portfolio-table .note{
+  font-size: 14px;
+  color: #bfbfbf;
+}
+.OSCSS-profile-portfolio-right form{
+  width: 100%;
+}
+.OSCSS-btn-portfolio{
+  width: 48%!important;
+  margin: auto 2px;
+}
+.OSCSS-profile-portfolio-new{
+  width: 100%;
+}
+@media screen and (max-width: 460px) {
+  .OSCSS-profile-portfolio-left{
+    width: 100%;
+  }
+  .OSCSS-profile-portfolio-right{
+    width: 100%;
+    padding: 0;
+  }
+  tr{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  td{
+    width: 100%;
+    height: 1.8rem;
+  }
+  .OSCSS-profile-portfolio-desc{
+    height: auto;
+  }
+  .OSCSS-portfolio-table td:nth-child(even){
+    text-align: right;
+  }
+  .OSCSS-btn-portfolio{
+    width: 100%!important;
+    margin: 0;
+  }
+
+}
