@@ -1,0 +1,60 @@
+.OSCSS-content-box-inner dl{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.OSCSS-content-box-inner dt{
+  float: left;
+  width: 30%;
+  margin-left: 10px;
+  font-weight: bold;
+  position: relative;
+}
+.OSCSS-content-box-inner dd{
+  width: 100%;
+  max-width: 725px;
+  margin: auto 0;
+  overflow-wrap: anywhere;
+}
+.OSCSS-content-box-inner dd input,
+.OSCSS-content-box-inner dd textarea,
+.OSCSS-content-box-inner dd select{
+  width: 100%;
+}
+.OSCSS-content-box-inner dd .note{
+  font-size: 14px;
+  color: #bfbfbf;
+}
+.OSCSS-portfolio-icon{
+  position: relative;
+  width: 250px;
+  height: 166px;
+  border: #bfbfbf 2px solid;
+  border-radius: 5%;
+  margin: 10px;
+  padding: 5px;
+}
+.OSCSS-portfolio-icon img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 92%;
+  height: 92%;
+  border-radius: 5%;
+}
+@media screen and (max-width: 460px) {
+  .OSCSS-content-box-inner dt{
+    width: 100%;
+    margin: 0 auto 10px;
+  }
+  .OSCSS-portfolio-icon{
+    margin: auto;
+  }
+  .OSCSS-content-box-inner dd{
+    width: 100%;
+    margin: 0 auto;
+  }
+}

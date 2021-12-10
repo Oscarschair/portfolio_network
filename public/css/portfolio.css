@@ -1,0 +1,86 @@
+.OSCSS-portfolio-header{
+  display: flex;
+  margin-bottom: 30px;
+}
+.OSCSS-portfolio-icon{
+  position: relative;
+  width: 40%;
+  height: 180px;
+  border-radius: 5%;
+  margin: 10px;
+  padding: 5px;
+}
+.OSCSS-portfolio-icon img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: auto;
+  height: 100%;
+  border: #bfbfbf 2px solid;
+  padding: 8px;
+  border-radius: 5%;
+}
+.OSCSS-portfolio-view, .OSCSS-portfolio-click{
+  width: 20%;
+  color: #646464;
+  font-size: 25px;
+  text-align: center;
+  margin: auto 0;
+}
+.OSCSS-portfolio-usericon{
+  width: 50px;
+  height: 50px;
+  border: #bfbfbf 2px solid;
+  border-radius: 50%;
+}
+.OSCSS-portfolio-usericon a{
+  display: flex;
+}
+.OSCSS-portfolio-usericon a span{
+  display: flex;
+  margin: auto 10px;
+}
+.OSCSS-portfolio-usericon img{
+  border-radius: 50%;
+}
+@media screen and (max-width: 460px) {
+  .OSCSS-portfolio-header{
+      flex-wrap: wrap;
+  }
+  .OSCSS-portfolio-icon{
+    width: 100%;
+  }
+  .OSCSS-portfolio-view, .OSCSS-portfolio-click{
+    width: 20%;
+    margin: auto;
+  }
+}
+
+.OSCSS-content-box-inner dl{
+  display: flex;
+  margin-bottom: 20px;
+}
+.OSCSS-content-box-inner dt{
+  float: left;
+  width: 30%;
+  margin-left: 10px;
+  font-weight: bold;
+  position: relative;
+}
+.OSCSS-content-box-inner dd{
+  width: 70%;
+  margin: auto 0;
+}
+.OSCSS-content-box-inner dd input,
+.OSCSS-content-box-inner dd textarea,
+.OSCSS-content-box-inner dd select{
+  width: 100%;
+}
+.OSCSS-content-box-inner dd .note{
+  font-size: 14px;
+  color: #bfbfbf;
+}
+
