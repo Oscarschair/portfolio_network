@@ -189,6 +189,7 @@
   position: relative;
   display: flex;
   width: 80%;
+  max-width:1080px;
   height: 500px;
   margin: 0 auto;
 }
@@ -211,6 +212,7 @@
 }
 .OSCSS-columns-col-img{
   width: 60%;
+  max-width: 188px;
   margin: 20px auto; 
 }
 .OSCSS-columns-col-desc{
