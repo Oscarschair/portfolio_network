@@ -119,12 +119,13 @@
   background-color: #e3e3e3;
 }
 .OSCSS-section-latest-col-pic, .OSCSS-section-latest-col-desc{
+  position: relative;
   height: 50%;
   text-align: center;
 }
 .OSCSS-section-latest-col-pic img{
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
   padding: 5px;
   border: 1px solid #000000;
   border-radius: 5px; 
@@ -157,8 +158,8 @@
     height: 75%;
   }
   .OSCSS-section-latest-col-pic img{
-    width: auto;
-    height: 100%;
+//    width: 100%;
+//    height: auto;
   }
   .OSCSS-section-latest-col-desc{
     height: auto;
@@ -189,6 +190,7 @@
   position: relative;
   display: flex;
   width: 80%;
+  
   max-width:1080px;
   height: 500px;
   margin: 0 auto;
@@ -212,6 +214,7 @@
 }
 .OSCSS-columns-col-img{
   width: 60%;
+  
   max-width: 188px;
   margin: 20px auto; 
 }
