@@ -136,17 +136,12 @@
     height: 40px;
     margin-left: 3px;
   }
-  #header-nav, #guest-nav{
-    margin-right: 0;
-  }
-  
-  #header-nav ul li,  #guest-nav ul li {
+  #header-nav,  #guest-nav{
     margin-left: 5px;
     margin-right: 5px;
   }
-  #header-nav ul li a, #guest-nav ul li a {
-    font-size: 10px;
+  #header-nav a, #guest-nav a {
+    font-size: 15px;
   }
-
 }
 
