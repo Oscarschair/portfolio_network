@@ -2,7 +2,7 @@
   display: flex;
   margin-bottom: 30px;
 }
-.OSCSS-portfolio-icon{
+.OSCSS-portfolio-icon-area{
   position: relative;
   width: 40%;
   height: 180px;
@@ -10,13 +10,17 @@
   margin: 10px;
   padding: 5px;
 }
-.OSCSS-portfolio-icon img {
+.OSCSS-portfolio-icon{
   position: relative;
-  margin: auto;
+  height: 100%;
   max-width: 240px;
   border: #bfbfbf 2px solid;
-  padding: 8px;
   border-radius: 5%;
+  margin: auto;
+}
+.OSCSS-portfolio-icon img {
+  position: relative;
+  padding: 8px;
 }
 .OSCSS-portfolio-view, .OSCSS-portfolio-click{
   width: 20%;

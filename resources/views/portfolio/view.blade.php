@@ -14,12 +14,14 @@
       <div class="OSCSS-content-box">
         <div class="OSCSS-content-box-inner">
           <div class="OSCSS-portfolio-header">
+            <div class="OSCSS-portfolio-icon-area">
             <div class="OSCSS-portfolio-icon">
               @if ($portfolio->icon_path == null)
               <img src="{{ asset('img/defaultPortfolioIcon.png') }}" width="150" height="150" alt="{{$portfolio->title}}"/>
               @else
               <img src="{{ asset('portfolioimages/'.$portfolio->icon_path) }}" width="150" height="150" alt="{{$portfolio->title}}"/>
               @endif
+            </div>             
             </div>             
             <div class="OSCSS-portfolio-view">
               <span>{{$portfolio->view}}</span><br>
