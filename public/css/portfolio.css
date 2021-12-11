@@ -11,14 +11,9 @@
   padding: 5px;
 }
 .OSCSS-portfolio-icon img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  position: relative;
   margin: auto;
-  width: auto;
-  height: 100%;
+  max-width: 240px;
   border: #bfbfbf 2px solid;
   padding: 8px;
   border-radius: 5%;
@@ -64,18 +59,19 @@
 
 .OSCSS-content-box-inner dl{
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 .OSCSS-content-box-inner dt{
-  float: left;
   width: 30%;
-  margin-left: 10px;
+  padding-left: 15px;
   font-weight: bold;
   position: relative;
 }
 .OSCSS-content-box-inner dd{
   width: 70%;
   margin: auto 0;
+  font-size: 13px;
 }
 .OSCSS-content-box-inner dd input,
 .OSCSS-content-box-inner dd textarea,
@@ -86,4 +82,12 @@
   font-size: 14px;
   color: #bfbfbf;
 }
-
+@media screen and (max-width: 460px) {
+  .OSCSS-content-box-inner dt{
+    width: 100%;
+    padding: 0;
+  }
+  .OSCSS-content-box-inner dd{
+    width: 100%;
+  }
+}
