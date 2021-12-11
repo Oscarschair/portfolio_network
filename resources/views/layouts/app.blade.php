@@ -141,6 +141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="container">
                 <nav>
                     <ul>
+                        <li><a class="OSCSS-footer-item" href="{{route('guide')}}">ご利用ガイド</a></li>
                         <li><a class="OSCSS-footer-item" href="{{route('contact')}}">お問い合わせ</a></li>
                         <li><a class="OSCSS-footer-item" href="{{route('company')}}">運営について</a></li>
                         <li><a class="OSCSS-footer-item" href="{{route('terms')}}">利用規約</a></li>

@@ -29,7 +29,6 @@
             </div>
             <div class="OSCSS-section-latest-col-desc">
               <span class="OSCSS-section-latest-col-type" style="background-color:{{$portfolioColors[$portfolio->type]}};">{{$portfolioTypes[$portfolio->type]}}</span><br>
-              <span class="OSCSS-section-latest-col-title">タイトル： {{$portfolio->title}}</span>
             </div>
           </div>
         </a>

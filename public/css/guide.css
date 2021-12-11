@@ -1,0 +1,52 @@
+p{
+  font-size: 15px;
+}
+@media screen and (max-width: 480px) {
+  h3{
+    width: 100%;
+  }
+  .OSCSS-content-box-inner{
+    padding: 20px;
+  }
+}
+
+
+
+
+
+label {
+    display: block;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    background: #223488;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #fff;
+}
+
+input[type="checkbox"].switcher{
+    display: none;
+}
+
+.OSCSS-content-list .listcontents {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"].switcher + .listcontents{
+    height: 0;
+    overflow: hidden;
+}
+
+input[type="checkbox"].switcher:checked + .listcontents{
+    height: auto;
+}

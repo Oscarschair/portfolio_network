@@ -15,6 +15,10 @@ class StaticController extends Controller
     {
 
     }
+    public function guide()
+    {
+        return view('static.guide');
+    }
     public function terms()
     {
         return view('static.terms');
