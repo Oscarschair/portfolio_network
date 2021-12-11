@@ -131,6 +131,7 @@
   height: 30%;
   text-align: center;
   overflow: hidden;
+  line-height: 2.5;
 }
 .OSCSS-section-latest-col-pic img{
   width: 100%;
@@ -142,7 +143,7 @@
   color: #ffffff;
   font-size: 10px;
   font-weight: 700;
-  padding: 0 15px;
+  padding: 2px 15px;
 }  
 .OSCSS-section-latest-col-title{
   font-size: 12px;
@@ -171,6 +172,7 @@
   }
   .OSCSS-section-latest-col-desc{
     height: auto;
+    line-height: 1.5;
   }
 }
 .OSCSS-section-description{
