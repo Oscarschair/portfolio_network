@@ -118,16 +118,24 @@
 .OSCSS-section-latest-col:hover{
   background-color: #e3e3e3;
 }
-.OSCSS-section-latest-col-pic, .OSCSS-section-latest-col-desc{
+.OSCSS-section-latest-col-pic{
   position: relative;
-  height: 50%;
+  height: 70%;
   text-align: center;
+  overflow: hidden;
+  border: 1px solid #000000;
+  border-radius: 5px; 
+}
+.OSCSS-section-latest-col-desc{
+  position: relative;
+  height: 30%;
+  text-align: center;
+  overflow: hidden;
 }
 .OSCSS-section-latest-col-pic img{
   width: 100%;
   height: auto;
   padding: 5px;
-  border: 1px solid #000000;
   border-radius: 5px; 
 }
 .OSCSS-section-latest-col-type{
