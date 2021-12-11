@@ -51,9 +51,9 @@
 }
 @media screen and (max-width: 460px) {
   .OSCSS-portfolio-header{
-      flex-wrap: wrap;
+    flex-wrap: wrap;
   }
-  .OSCSS-portfolio-icon{
+  .OSCSS-portfolio-icon-area{
     width: 100%;
   }
   .OSCSS-portfolio-view, .OSCSS-portfolio-click{

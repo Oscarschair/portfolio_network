@@ -2,7 +2,7 @@
 
 @section('content')
 @inject('dateLib', 'App\Libs\DateLib')
-<link href="{{ asset('css/portfolio.css') }}" rel="stylesheet">
+<link href="{{ asset('css/portfolio.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
 <!--script src="{{ asset('js/filechecker.js') }}" defer></script-->
 @if($urlClicked)
 <script>window.open('{{$urlClicked}}', '_blank')</script>
