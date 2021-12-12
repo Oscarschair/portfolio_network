@@ -27,20 +27,23 @@
     @else<meta content="{{ config('app.description', 'description') }}" name='description'>
     @endisset
 @isset($meta_keywords)<meta content="{{$meta_keywords}}" name='keywords'>
-    @else<meta content="ポートフォリオ,共有,プラットフォーム" name='keywords'>
+    @else<meta content="Portifolio,Network,ポートフォリオ,共有,プラットフォーム" name='keywords'>
     @endisset
 
     <meta property="og:url" content="{{ \Request::fullUrl() }}" />
     @isset($title)<meta property="og:title" content="{{ $title }}" />
-    @else<meta property="og:title" content="{{ config('app.name', 'Laravel') }}" />
+    @else<meta property="og:title" content="{{ config('app.name', 'Portifolio Network') }}" />
     @endisset
 @isset($meta_description)<meta property="og:description" content="{{$meta_description}}" />
-    @else<meta property="og:description" content="あなたの才能は秘めたままにしない">
-    @endisset<meta property="og:site_name" content="ポト" />
+    @else<meta property="og:description" content="あなたの才能は秘めたままにしないポートフォリオ共有プラットフォーム">
+    @endisset<meta property="og:site_name" content="Portifolio Network" />
     @isset($meta_image_path)
     <meta property="og:image" content="{{$meta_image_path}}" />
-    @else<meta property="og:image" content="{{asset('img/main.jpg')}}" />
+    @else<meta property="og:image" content="{{asset('img/logo.png')}}" />
     @endisset
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ChairOscar" />
     {{-- OGPを設定 end --}}
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
