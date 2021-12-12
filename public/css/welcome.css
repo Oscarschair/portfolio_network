@@ -58,7 +58,6 @@
 }
 .OSCSS-section-latest{
   position: relative;
-  height: 180px;
   background-color: #ffffff;
 }
 .OSCSS-section-latest .OSCSS-section-inner{
@@ -120,7 +119,8 @@
 }
 .OSCSS-section-latest-col-pic{
   position: relative;
-  height: 70%;
+  width: 100%;
+  height: auto;
   text-align: center;
   overflow: hidden;
   border: 1px solid #000000;
