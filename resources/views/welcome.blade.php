@@ -28,7 +28,7 @@
               @endif
             </div>
             <div class="OSCSS-section-latest-col-desc">
-              <span class="OSCSS-section-latest-col-type" style="background-color:{{$portfolioColors[$portfolio->type]}};">{{$portfolioTypes[$portfolio->type]}}</span>
+<!--              <span class="OSCSS-section-latest-col-type" style="background-color:{{$portfolioColors[$portfolio->type]}};">{{$portfolioTypes[$portfolio->type]}}</span> -->
             </div>
           </div>
         </a>
