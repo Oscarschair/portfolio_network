@@ -16,6 +16,8 @@ App::setLocale('ja');
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 
+Route::get('/sitemap', 'SitemapController@sitemap')->name('sitemap');
+
 Route::get('/guide', 'StaticController@guide')->name('guide');
 Route::get('/terms', 'StaticController@terms')->name('terms');
 Route::get('/privacypolicy', 'StaticController@privacypolicy')->name('privacypolicy');
