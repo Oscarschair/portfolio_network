@@ -11,7 +11,7 @@
   padding: 5px;
 }
 .OSCSS-portfolio-icon{
-  display: inline-block;
+  display: block;
   position: relative;
   height: 100%;
   max-width: 240px;
@@ -21,7 +21,10 @@
 }
 .OSCSS-portfolio-icon img {
   position: relative;
+  left: 50%;
+  top: 50%;
   padding: 8px;
+  transform: translate(-50%,-50%);
 }
 .OSCSS-portfolio-view, .OSCSS-portfolio-click{
   width: 20%;
