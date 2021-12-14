@@ -14,13 +14,13 @@
     <input type="checkbox" id="content1" class="switcher" />
     <div class="listcontents">
 	画面右上の「会員登録」をクリックしましょう。<br>
-	<img class="OSCSS-guide-img" src="{{asset('img/guide/1.png')}}"><br>
+	<img class="OSCSS-guide-img-50" src="{{asset('img/guide/1.png')}}"><br>
 	メールアドレスとパスワード入力して、利用規約とプライバシーポリシーを確認し、「アカウント作成」をクリックしましょう。<br>
-	<img class="OSCSS-guide-img" src="{{asset('img/guide/2.png')}}"><br>
+	<img class="OSCSS-guide-img-50" src="{{asset('img/guide/2.png')}}"><br>
 	
 	上記の手続き完了したら、認証メールが送信されます。<br>
 	メール確認しましょう。<br>
-	<img class="OSCSS-guide-img" src="{{asset('img/guide/3.png')}}"><br>
+	<img class="OSCSS-guide-img-50" src="{{asset('img/guide/3.png')}}"><br>
 	「メールアドレスを認証」ボタンをクリックして、登録手続き完了しましょう。
     </div>
 </div>
@@ -30,7 +30,7 @@
     <input type="checkbox" id="content2" class="switcher" />
     <div class="listcontents">
       画面右上の「ログイン」をクリックしましょう。<br>
-      <img class="OSCSS-guide-img" src="{{asset('img/guide/4.png')}}"><br>
+      <img class="OSCSS-guide-img-50" src="{{asset('img/guide/4.png')}}"><br>
       メールアドレスとパスワードを記入してログインしましょう。<br>
       <img class="OSCSS-guide-img" src="{{asset('img/guide/5.png')}}">
     </div>
@@ -40,14 +40,14 @@
     <input type="checkbox" id="content3" class="switcher" />
     <div class="listcontents">
       「ログイン」ボタンの下にある、「パスワードを忘れた方はこちら」のリンクをクリックしましょう。<br>
-      <img class="OSCSS-guide-img" src="{{asset('img/guide/6.png')}}"><br>
+      <img class="OSCSS-guide-img-50" src="{{asset('img/guide/6.png')}}"><br>
       登録した「メールアドレス」を記入して、「パスワードリセットリンクを送信」をクリックしましょう。<br>
       メールが送信されます。メール確認しましょう。<br>
-      <img class="OSCSS-guide-img" src="{{asset('img/guide/7.png')}}"><br>
+      <img class="OSCSS-guide-img-50" src="{{asset('img/guide/7.png')}}"><br>
       「パスワードリセット」をクリックしましょう。<br>
-      <img class="OSCSS-guide-img" src="{{asset('img/guide/8.png')}}"><br>
+      <img class="OSCSS-guide-img-50" src="{{asset('img/guide/8.png')}}"><br>
       開かれたページで、新しい「パスワード」を記入し、「パスワードリセット」をクリックし、設定しましょう。<br>
-      <img class="OSCSS-guide-img" src="{{asset('img/guide/9.png')}}">
+      <img class="OSCSS-guide-img-50" src="{{asset('img/guide/9.png')}}">
     </div>
 </div>
 <div class="OSCSS-content-list">

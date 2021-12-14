@@ -38,6 +38,9 @@ input[type="checkbox"].switcher{
     margin-bottom: 10px;
 }
 .OSCSS-guide-img{
+    width: 100%;
+}
+.OSCSS-guide-img-50{
     width: 50%;
 }
 .OSCSS-guide-img-25{
