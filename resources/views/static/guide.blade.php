@@ -146,9 +146,9 @@
     このファイルを登録されたドメインの配下に設置しましょう。<br>
     ※「http://example.com/」で登録された場合、「http://example.com/xxxxxxxxxxxxxxxx.html」になるように設置しましょう。<br>
     設置完了後、「今すぐ認証する」をクリックしましょう。<br>
-    <img class="OSCSS-guide-img" src="{{asset('img/guide/21.png')}}"><br>
+    <img class="OSCSS-guide-img-50" src="{{asset('img/guide/21.png')}}"><br>
     成功した場合、このように表示されます。<br>
-    <img class="OSCSS-guide-img" src="{{asset('img/guide/22.png')}}">
+    <img class="OSCSS-guide-img-50" src="{{asset('img/guide/22.png')}}">
     </div>
 </div>
 <div class="OSCSS-content-list">
