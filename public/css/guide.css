@@ -10,10 +10,6 @@ p{
   }
 }
 
-
-
-
-
 label {
     display: block;
     color: #fff;
@@ -41,7 +37,12 @@ input[type="checkbox"].switcher{
     font-size: 13px;
     margin-bottom: 10px;
 }
-
+.OSCSS-guide-img{
+    width: 50%;
+}
+.OSCSS-guide-img-25{
+    width: 25%;
+}
 input[type="checkbox"].switcher + .listcontents{
     height: 0;
     overflow: hidden;
