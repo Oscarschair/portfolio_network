@@ -40,11 +40,17 @@ input[type="checkbox"].switcher{
 .OSCSS-guide-img{
     width: 100%;
 }
+.OSCSS-guide-img-25{
+    width: 25%;
+}
 .OSCSS-guide-img-50{
     width: 50%;
 }
-.OSCSS-guide-img-25{
-    width: 25%;
+.OSCSS-guide-img, .OSCSS-guide-img-25, .OSCSS-guide-img-50{
+    border: black solid 1px;
+    padding: 5px;
+    border-radius: 5px;
+
 }
 input[type="checkbox"].switcher + .listcontents{
     height: 0;

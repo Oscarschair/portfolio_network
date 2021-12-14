@@ -32,7 +32,7 @@
       画面右上の「ログイン」をクリックしましょう。<br>
       <img class="OSCSS-guide-img-50" src="{{asset('img/guide/4.png')}}"><br>
       メールアドレスとパスワードを記入してログインしましょう。<br>
-      <img class="OSCSS-guide-img" src="{{asset('img/guide/5.png')}}">
+      <img class="OSCSS-guide-img-50" src="{{asset('img/guide/5.png')}}">
     </div>
 </div>
 <div class="OSCSS-content-list">
