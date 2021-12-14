@@ -15,20 +15,17 @@
   </section>
   <section class="OSCSS-section-latest">
     <div class="OSCSS-section-inner">
-      <h2 class="animate-box-up">新着ポートフォリオ</h2>
+      <h2 class="OSCSS-section-latest-title animate-box-up">新着ポートフォリオ</h2>
       <div class="OSCSS-section-latest-list">
         @foreach($portfolios as $portfolio)
         <a href="{{route('viewPortfolio', ['id' => $portfolio->id])}}">
           <div class="OSCSS-section-latest-col animate-box-up">
 	    <div class="OSCSS-section-latest-col-pic">
               @if ($portfolio->icon_path == null)
-              <img src="{{ asset('img/defaultPortfolioIcon.png') }}" width="300" height="200" alt="{{$portfolio->title}}"/>
+              <img class="OSCSS-section-latest-col-pic-img" src="{{ asset('img/defaultPortfolioIcon.png') }}" width="300" height="200" alt="{{$portfolio->title}}"/>
               @else
-              <img src="{{ asset('portfolioimages/'.$portfolio->icon_path) }}" width="150" height="150" alt="{{$portfolio->title}}"/>
+              <img class="OSCSS-section-latest-col-pic-img" src="{{ asset('portfolioimages/'.$portfolio->icon_path) }}" width="300" height="200" alt="{{$portfolio->title}}"/>
               @endif
-            </div>
-            <div class="OSCSS-section-latest-col-desc">
-<!--              <span class="OSCSS-section-latest-col-type" style="background-color:{{$portfolioColors[$portfolio->type]}};">{{$portfolioTypes[$portfolio->type]}}</span> -->
             </div>
           </div>
         </a>

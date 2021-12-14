@@ -29,7 +29,6 @@
 			i++;
 			if(i>5){i=0};
 		}
-	
 	}
 	var showPortfolioSlides = function() {
 		i = curPortfolioSlider;
@@ -38,23 +37,23 @@
 			if (matchMedia('(max-width: 460px)').matches) {
 				if(j > 1){
 					portfolioSlidersArray[i].style.left = $('.OSCSS-section-latest-list').width() + "px" ;
-//					portfolioSlidersArray[i].style.opacity = "0";
-					portfolioSlidersArray[i].style.width = "0";
 					portfolioSlidersArray[i].style.display = "none";
 				}else{
 					portfolioSlidersArray[i].style.left = $('.OSCSS-section-latest-list').width()/2*j + "px" ;
-//					portfolioSlidersArray[i].style.opacity = "1";
-					portfolioSlidersArray[i].style.width = "45%";
 					portfolioSlidersArray[i].style.display = "block";
 				}
-				
+			
 			}else{
 				portfolioSlidersArray[i].style.left = $('.OSCSS-section-latest-list').width()/5*j + "px" ;
+				$('.OSCSS-section-latest').css("height",$('.OSCSS-section-latest-col-pic').height()+40+"px");
+				$('.OSCSS-section-latest-title').css("line-height",$('.OSCSS-section-latest-col-pic').height()+40+"px");
+				$('.OSCSS-section-latest-col').css("height",$('.OSCSS-section-latest-col-pic').height()+20+"px");
 			}
 			i++;
 			if(i>4){i=0};
 		}
-	
+
+
 	}
 	var switchSlides = function(movement) {
 		curSlider = curSlider + movement;

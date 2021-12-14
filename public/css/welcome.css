@@ -68,16 +68,12 @@
   font-size: 20px;
   margin: 0;
   width: 20%;
-  height: 180px;
-  line-height: 180px;
   text-align: center;
 }
 .OSCSS-section-latest-list{
-  display: flex;
   position:relative;
   width: 80%;
-  height: 150px;
-  margin: auto;  
+  margin: 10px auto;  
   padding: 0 10px;
 }
 .OSCSS-section-latest-col{
@@ -108,7 +104,6 @@
     padding: 0;
   }
   .OSCSS-section-latest-list{
-    height: 130px;
     width: 70%;
     margin: 0 auto;
     padding: 0;
@@ -125,18 +120,26 @@
   border: 1px solid #000000;
   border-radius: 5px; 
 }
+.OSCSS-section-latest-col-pic:before{
+    content: "";
+    display: block;
+    padding-top: 75%;
+}
+.OSCSS-section-latest-col-pic img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  border-radius: 5px; 
+}
 .OSCSS-section-latest-col-desc{
   position: relative;
   height: 30%;
   text-align: center;
   overflow: hidden;
   line-height: 2.5;
-}
-.OSCSS-section-latest-col-pic img{
-  width: 100%;
-  height: auto;
-  padding: 5px;
-  border-radius: 5px; 
 }
 .OSCSS-section-latest-col-type{
   color: #ffffff;
@@ -151,7 +154,8 @@
 }
 @media screen and (max-width: 460px) {
   .OSCSS-section-latest-col{
-    height: 80%;
+    width: 48%;
+    height: auto;
     text-align: center;
     margin: 0;
   }
@@ -159,15 +163,9 @@
     padding: 0;
     margin: 0 auto;
   }
-  .OSCSS-section-latest-col-title{
-    display:none;
-  }
-  .OSCSS-section-latest-col-pic{
-    height: 75%;
-  }
   .OSCSS-section-latest-col-pic img{
-//    width: 100%;
-//    height: auto;
+    width: 100%;
+    height: auto;
   }
   .OSCSS-section-latest-col-desc{
     height: auto;
