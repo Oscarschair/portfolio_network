@@ -50,8 +50,7 @@
     <script src="{{ asset('js/jquery.min.js') }}" ></script>
     <script src="{{ asset('js/jquery.waypoints.min.js') }}" ></script>
     <script src="{{ asset('js/common.js') }}" defer></script>
-    {{-- <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>--}}
-    {{-- <script src="{{ asset('js/header.js') }}"></script>--}}
+    <script src="{{ asset('js/header.js') }}" defer></script>
 
     <!-- Fonts -->
     {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
@@ -64,7 +63,7 @@
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}?<?php echo date('Ymd-Hi'); ?>" type="text/css">
     {{-- <link href="{{ asset('FontAwesome/css/all.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/header.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
 
 
 
@@ -83,18 +82,18 @@
     <script type="text/javascript" src="{{ asset('bootstrap-datepicker/locales/bootstrap-datepicker.ja.min.js') }}"></script> --}}
 
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MPJ85VB');</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MPJ85VB');</script>
     <!-- End Google Tag Manager -->
 
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPJ85VB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPJ85VB"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="wrapper">
@@ -105,27 +104,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <img id="logo" src="{{ asset('/img/logo.png') }}" width="140" height="40" alt="{{ config('app.name', 'Laravel') }}">
                 </a>
 		 <h1>{{ config('app.name', 'Laravel') }} {{ config('app.description', 'description') }}</h1>
-		 <nav @guest id="guest-nav" @else id="header-nav" @endguest >
-		 
-		 <a id="OSCSS-nav-search"><img src="/img/search.png" alt="検索" width="40" height="40"></a>
-		 <!-- 認証前のリンク -->
-		 @guest
-		 <div class="OSCSS-nav">
-		   <a class="OSCSS-nav-item" href="{{route('login')}}">ログイン</a>
-		   <a class="OSCSS-nav-item" href="{{route('register')}}">会員登録</a>
-		 </div>
-		 <!-- 認証済みのリンク -->
-		 @else
-		 <div class="OSCSS-nav">
-		   <a class="OSCSS-nav-item" href="{{ route('myprofile') }}"><i class="fas fa-home fa-fw"></i>マイページ</a>
-		   <a class="OSCSS-nav-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-		   <i class="fas fa-sign-out-alt"></i>&nbsp;ログアウト</a>
-		   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-		   @csrf
-		   </form>
-		 </div>
-		 @endguest
+		 <nav class="header-nav">
+		     <div class="header-nav-closer"></div>
+		     <div class="header-nav-content">
+		       <a id="OSCSS-nav-search"><img src="/img/search.png" alt="検索" width="40" height="40"></a>
+		       <!-- 認証前のリンク -->
+		       <div class="OSCSS-nav">
+		       @guest
+		         <a class="OSCSS-nav-item" href="{{route('login')}}">ログイン</a>
+		         <a class="OSCSS-nav-item" href="{{route('register')}}">会員登録</a>
+		       <!-- 認証済みのリンク -->
+		       @else
+		         <a class="OSCSS-nav-item" href="{{ route('myprofile') }}"><i class="fas fa-home fa-fw"></i>マイページ</a>
+		         <a class="OSCSS-nav-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+		         <i class="fas fa-sign-out-alt"></i>&nbsp;ログアウト</a>
+		         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+		         @csrf
+		         </form>
+		       @endguest
+		     </div>
+		     <div class="header-nav-bottom">
+		         <a class="OSCSS-nav-item" href="{{ route('guide') }}">ご利用ガイド</a>
+		         <a class="OSCSS-nav-item" href="{{ route('contact') }}">お問い合わせ</a>
+		         <a class="OSCSS-nav-item" href="{{ route('company') }}">運営について</a>
+		         <a class="OSCSS-nav-item" href="{{ route('terms') }}">ご利用規約</a>
+		         <a class="OSCSS-nav-item" href="{{ route('privacypolicy') }}">プライバシーポリシー</a>
+		     </div>
+		     </div>
                 </nav>
+                
+                <div class="hamburger">
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		</div>
             </div>
             <div id="OSCSS-searcher">
               <form action="{{route('globalSearch')}}" id="GlobalSearcher" method="post" enctype="multipart/form-data">
@@ -152,6 +164,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </ul>
                 </nav>
                 <nav class="sp-only">
+                    <div></div>
                     <ul>
                         <li><a class="OSCSS-footer-item" href="{{route('guide')}}">ご利用ガイド</a></li>
                         <li><a class="OSCSS-footer-item" href="{{route('contact')}}">お問い合わせ</a></li>

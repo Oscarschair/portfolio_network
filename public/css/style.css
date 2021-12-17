@@ -104,7 +104,7 @@ main{
   width: 50%!important;
   margin: 2px auto;
 }
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 480px) {
   .OSCSS-btn50{
     width: 100%!important;
   }
@@ -152,6 +152,10 @@ footer {
   margin-top: auto;
   font-weight: bold;
 }
+footer .pc-only{
+  margin: 10px 0;
+
+}
 footer .pc-only ul{
   padding: 0;
   display: flex;
@@ -170,13 +174,19 @@ footer .pc-only ul li:nth-child(n + 2) {
 
 
 /* スクリーンが460px以下のCSSを適用 */
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 480px) {
   footer .sp-only{
     display: flex;
     flex-wrap: wrap;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+  footer .sp-only div{
+    width: 15%;
   }
   footer .sp-only ul{
-    width: 45%;
+    width: 35%;
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
@@ -207,20 +217,10 @@ footer .pc-only ul li:nth-child(n + 2) {
   margin-bottom: 10px;
 
 }
-
 .OSCSS-footer-rights a{
   color: #ffffff;
 }
-footer nav {
-  margin: 10px 0;
-  width: 100%;
-  text-align: center;
-
-}
 @media screen and (max-width: 480px) {
-  footer nav {
-    margin: 10px 30px;
-  }
   .OSCSS-footer-item{
     margin: 8px;
     font-size:10px;
