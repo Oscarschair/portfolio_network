@@ -31,6 +31,7 @@
   }
 }
 .OSCSS-profile-icon{
+  position: relative;
   width: 150px;
   height: 150px;
   border: #bfbfbf 2px solid;
@@ -38,6 +39,14 @@
   margin: auto;
   overflow: hidden;
 }
+.OSCSS-profile-icon img{
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
 .OSCSS-profile-revoke{
   width: 100%;
   text-align: right;
@@ -61,17 +70,31 @@
   margin: 10px auto;
 }
 .OSCSS-profile-portfolio-pic{
-  max-width: 250px;
-  width: 100%;
-  height: auto;
+  display: block;
   position: relative;
-  padding: 8px;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  margin: 0 auto;
+  max-width: 240px;
+  border: #bfbfbf 4px solid;
+  border-radius: 5%;
+  margin: auto;
 }
-.OSCSS-profile-portfolio-pic img{
+.OSCSS-profile-portfolio-pic-inner{
+  display: block;
   position: relative;
+  border: #ffffff 8px solid;
+  border-radius: 5%;
+  overflow: hidden;
+}
+.OSCSS-profile-portfolio-pic-inner:before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+}
+.OSCSS-profile-portfolio-pic-inner img{
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 .OSCSS-profile-portfolio-right{
   width: 70%;
@@ -92,6 +115,7 @@
 }
 .OSCSS-portfolio-table td:nth-child(even){
   width: 80%;
+  font-weight: normal;
 }
 .OSCSS-portfolio-table .note{
   font-size: 14px;
@@ -126,7 +150,11 @@
   .OSCSS-profile-portfolio-desc{
     height: auto;
   }
+  .OSCSS-portfolio-table td{
+    width: 100%;
+  }
   .OSCSS-portfolio-table td:nth-child(even){
+    width: 100%;
     text-align: right;
   }
   .OSCSS-btn-portfolio{

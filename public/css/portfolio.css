@@ -14,15 +14,27 @@
   position: relative;
   height: 100%;
   max-width: 240px;
-  border: #bfbfbf 2px solid;
+  border: #bfbfbf 4px solid;
   border-radius: 5%;
   margin: auto;
 }
-.OSCSS-portfolio-icon img {
+.OSCSS-portfolio-icon-inner{
+  display: block;
   position: relative;
+  border: #ffffff 8px solid;
+  border-radius: 5%;
+  overflow: hidden;
+}
+.OSCSS-portfolio-icon-inner:before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+}
+.OSCSS-portfolio-icon img {
+  position: absolute;
+  width: 100%;
   left: 50%;
   top: 50%;
-  padding: 8px;
   transform: translate(-50%,-50%);
 }
 .OSCSS-portfolio-view, .OSCSS-portfolio-click{
@@ -33,10 +45,12 @@
   margin: auto 0;
 }
 .OSCSS-portfolio-usericon{
+  position: relative;
   width: 50px;
   height: 50px;
   border: #bfbfbf 2px solid;
   border-radius: 50%;
+  overflow: hidden;
 }
 .OSCSS-portfolio-usericon a{
   display: flex;
@@ -46,10 +60,12 @@
   white-space: nowrap;
   margin: auto 10px;
 }
-.OSCSS-portfolio-usericon img{
+.OSCSS-portfolio-usericon a img{
+  position: absolute;
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 @media screen and (max-width: 460px) {
   .OSCSS-portfolio-header{

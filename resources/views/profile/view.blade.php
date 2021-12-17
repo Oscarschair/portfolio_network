@@ -2,7 +2,7 @@
 
 @section('content')
 @inject('dateLib', 'App\Libs\DateLib')
-<link href="{{ asset('css/myprofile.css') }}" rel="stylesheet">
+<link href="{{ asset('css/myprofile.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
 <script src="{{ asset('js/filechecker.js') }}" defer></script>
 <div class="container">
     <div class="justify-content-center">
@@ -35,6 +35,7 @@
 	    @if ($portfolio->verified_at != null)
 	    <div class="OSCSS-profile-portfolio-left">
 	      <div class="OSCSS-profile-portfolio-pic">
+	      <div class="OSCSS-profile-portfolio-pic-inner">
 	        <a href="{{route('viewPortfolio', ['id' => $portfolio->id])}}">
                 @if ($portfolio->icon_path == null)
                 <img src="{{ asset('img/defaultPortfolioIcon.png') }}" width="300" height="200"/>
@@ -42,6 +43,7 @@
                 <img src="{{ asset('portfolioimages/'.$portfolio->icon_path) }}" width="150" height="150"/>
                 @endif
                 </a>
+              </div>
               </div>
 	    </div>
 	    <div class="OSCSS-profile-portfolio-right">

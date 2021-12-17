@@ -70,11 +70,13 @@
 	    @foreach ($portfolios as $portfolio)
 	    <div class="OSCSS-profile-portfolio-left">
 	      <div class="OSCSS-profile-portfolio-pic">
+	      <div class="OSCSS-profile-portfolio-pic-inner">
                 @if ($portfolio->icon_path == null)
                 <img src="{{ asset('img/defaultPortfolioIcon.png') }}" width="300" height="200"/>
                 @else
                 <img src="{{ asset('portfolioimages/'.$portfolio->icon_path) }}" width="150" height="150"/>
                 @endif
+              </div>
               </div>
 	    </div>
 	    <div class="OSCSS-profile-portfolio-right">
