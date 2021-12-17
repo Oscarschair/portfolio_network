@@ -25,6 +25,7 @@ time, mark, audio, video {
 img{
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 h1{
   display: none;
