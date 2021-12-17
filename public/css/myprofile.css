@@ -36,9 +36,7 @@
   border: #bfbfbf 2px solid;
   border-radius: 50%;
   margin: auto;
-}
-.OSCSS-profile-icon img {
-  border-radius: 50%;
+  overflow: hidden;
 }
 .OSCSS-profile-revoke{
   width: 100%;
