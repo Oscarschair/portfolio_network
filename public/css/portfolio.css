@@ -67,6 +67,10 @@
   top: 50%;
   transform: translate(-50%,-50%);
 }
+.OSCSS-portfolio-username{
+  padding-left: 10px;
+  line-height: 50px;
+}
 @media screen and (max-width: 460px) {
   .OSCSS-portfolio-header{
     flex-wrap: wrap;
@@ -92,6 +96,7 @@
   position: relative;
 }
 .OSCSS-content-box-inner dd{
+  display: flex;
   width: 70%;
   margin: auto 0;
   font-size: 13px;

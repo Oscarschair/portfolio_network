@@ -2,7 +2,7 @@
 
 @section('content')
 @inject('dateLib', 'App\Libs\DateLib')
-<link href="{{ asset('css/editportfolio.css') }}<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
+<link href="{{ asset('css/editportfolio.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
 <script src="{{ asset('js/filechecker.js') }}" defer></script>
 <div class="container">
     <div class="justify-content-center">
@@ -13,11 +13,13 @@
           <dl>
             <dt>
               <div class="OSCSS-portfolio-icon">
+              <div class="OSCSS-portfolio-icon-inner">
                 @if ($portfolio->icon_path == null)
                 <img src="{{ asset('img/defaultPortfolioIcon.png') }}" width="150" height="150"/>
                 @else
                 <img src="{{ asset('portfolioimages/'.$portfolio->icon_path) }}" width="150" height="150"/>
                 @endif
+              </div>
               </div>
             </dt>
             <dd>

@@ -44,9 +44,11 @@
                 @else
                 <img src="{{ asset('userimages/'.$user->icon_path) }}" width="150" height="150"/>
                 @endif
-                <span>{{$user->name}}</span>
                 </a>
-              <div>
+              </div>
+              <div class="OSCSS-portfolio-username">
+                <span>{{$user->name}}</span>
+              </div>
             </dd>
           </dl>
           

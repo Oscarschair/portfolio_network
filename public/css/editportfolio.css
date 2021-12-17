@@ -26,23 +26,32 @@
   color: #bfbfbf;
 }
 .OSCSS-portfolio-icon{
+  display: block;
   position: relative;
-  width: 250px;
-  height: 166px;
-  border: #bfbfbf 2px solid;
+  height: 100%;
+  max-width: 240px;
+  border: #bfbfbf 4px solid;
   border-radius: 5%;
-  margin: 10px;
-  padding: 5px;
+  margin: auto;
+}
+.OSCSS-portfolio-icon-inner{
+  display: block;
+  position: relative;
+  border: #ffffff 8px solid;
+  border-radius: 5%;
+  overflow: hidden;
+}
+.OSCSS-portfolio-icon-inner:before {
+    content: "";
+    display: block;
+    padding-top: 75%;
 }
 .OSCSS-portfolio-icon img {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 92%;
-  border-radius: 5%;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 @media screen and (max-width: 460px) {
   .OSCSS-content-box-inner dt{
