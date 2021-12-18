@@ -40,9 +40,9 @@
               <div class="OSCSS-portfolio-usericon">
                 <a href="/profile/{{$user->id}}">
                 @if ($user->icon_path == null)
-                <img src="{{ asset('img/defaultProfileIcon.png') }}" width="150" height="150"/>
+                <img src="{{ asset('img/defaultProfileIcon.png') }}" width="150" height="150" alt="{{$user->name}}"/>
                 @else
-                <img src="{{ asset('userimages/'.$user->icon_path) }}" width="150" height="150"/>
+                <img src="{{ asset('userimages/'.$user->icon_path) }}" width="150" height="150" alt="{{$user->name}}"/>
                 @endif
                 </a>
               </div>
@@ -54,7 +54,7 @@
           
           <dl>
             <dt>URL：</dt>
-            <dd>
+            <dd style="display:block;">
             @auth
             <form action="{{ route('clickPortfolio', ['id' => $portfolio->id])}}" id="clickPortfolio" method="post" enctype="multipart/form-data">
                 @csrf

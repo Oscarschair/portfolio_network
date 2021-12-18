@@ -13,9 +13,9 @@
             <dt>
               <div class="OSCSS-profile-icon">
                 @if ($user->icon_path == null)
-                <img src="{{ asset('img/defaultProfileIcon.png') }}" width="150" height="150"/>
+                <img src="{{ asset('img/defaultProfileIcon.png') }}" width="150" height="150" alt="{{$user->name}}"/>
                 @else
-                <img src="{{ asset('userimages/'.$user->icon_path) }}" width="150" height="150"/>
+                <img src="{{ asset('userimages/'.$user->icon_path) }}" width="150" height="150" alt="{{$user->name}}"/>
                 @endif
               </div>
             </dt>
@@ -38,9 +38,9 @@
 	      <div class="OSCSS-profile-portfolio-pic-inner">
 	        <a href="{{route('viewPortfolio', ['id' => $portfolio->id])}}">
                 @if ($portfolio->icon_path == null)
-                <img src="{{ asset('img/defaultPortfolioIcon.png') }}" width="300" height="200"/>
+                <img src="{{ asset('img/defaultPortfolioIcon.png') }}" width="300" height="200" alt="{{$portfolio->title}}"/>
                 @else
-                <img src="{{ asset('portfolioimages/'.$portfolio->icon_path) }}" width="150" height="150"/>
+                <img src="{{ asset('portfolioimages/'.$portfolio->icon_path) }}" width="150" height="150" alt="{{$portfolio->title}}"/>
                 @endif
                 </a>
               </div>
