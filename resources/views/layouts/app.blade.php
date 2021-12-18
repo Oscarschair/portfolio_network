@@ -45,6 +45,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ChairOscar" />
     {{-- OGPを設定 end --}}
+    
+    <!-- google client -->    
+    <meta name="google-signin-client_id" content="961559768869-s907dpkfdt8rk9atkqvccu16oprit7sk.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script src="{{ asset('js/jquery.min.js') }}" ></script>

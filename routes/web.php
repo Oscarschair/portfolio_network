@@ -40,6 +40,9 @@ Route::get('/profile/{id}', 'ProfileController@viewProfile')->name('viewProfile'
 
 
 Auth::routes(['verify' => true]);
+Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/portfolio/mod/{id}', 'PortfolioController@viewEditPortfolio')->name('viewEditPortfolio');
