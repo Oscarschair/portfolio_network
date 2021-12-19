@@ -11,7 +11,7 @@
                     <div class="form-group row mt-2">
                         <div class="OSCSS-socialLoginList">
                             <a href="/login/google" class="btn btn-forGoogle" role="button">
-                                <img src="img/google_logo.png" width="20" height="20"/><span style="margin-left:20px;">Google ログイン</span>
+                                <img src="img/google_logo.png" width="20" height="20"/><span style="margin-left:20px;">Googleでログイン</span>
                             </a>
                         </div>
                     </div>

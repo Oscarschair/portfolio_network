@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+.OSCSS-socialLoginList{
+  width: auto;
+  margin: auto;
+}
+.btn-forGoogle{
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #848484;
+  background-color: #ffffff;
+  filter: drop-shadow(-1px 3px 3px #e5e5e5);
+  width: 300px;
+  max-width: 100%;
+}
+.btn-forGoogle:hover{
+  color: #848484;
+  background-color: #e5e5e5;
+}
+.btn-forGoogle img{
+  width: 20px;
+  height: 20px;
+}
+.OSCSS-register-line{
+    margin: 20px auto;
+    text-align: center;
+    overflow: hidden;
+    font-size: 25px;
+}
+.OSCSS-register-line span{
+    display: inline-block;
+    padding: 0 0.5em;
+    position: relative;
+    color: #262626;
+    font-size: 14px;
+    font-weight: normal;
+}
+.OSCSS-register-line span:before,.OSCSS-register-line span:after {
+    border-top: 1px solid #262626;
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 99em;
+}
+.OSCSS-register-line span:before {
+    right: 100%;
+}
+.OSCSS-register-line span:after {
+    left: 100%;
+}
+

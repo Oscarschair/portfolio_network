@@ -8,8 +8,16 @@
         <div class="OSCSS-content-box-inner">
             <div class="card" style="margin-top:20px;">
                 <div class="card-header">{{ __('auth.register') }}</div>
-
                 <div class="card-body">
+                    <div class="form-group row mt-2">
+                        <div class="OSCSS-socialLoginList">
+                            <a href="/login/google" class="btn btn-forGoogle" role="button">
+                                <img src="img/google_logo.png" width="20" height="20"/><span style="margin-left:20px;">Googleで登録</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="OSCSS-register-line"><span>または</span></div>
+
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group row">
