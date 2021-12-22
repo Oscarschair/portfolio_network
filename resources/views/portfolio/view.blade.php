@@ -4,10 +4,14 @@
 @inject('dateLib', 'App\Libs\DateLib')
 <link href="{{ asset('css/portfolio.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
 <!--script src="{{ asset('js/filechecker.js') }}" defer></script-->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v12.0" nonce="CNjaHHdJ"></script>
+
 @if($urlClicked)
 <script>window.open('{{$urlClicked}}', '_blank')</script>
 @endif
-<div class="container">
+  <div class="container">
     <div class="justify-content-center">
       @if ($portfolio->display_flag && $portfolio->verified_at)
       <h2 style="display: none;">ポートフォリオ</h2>
@@ -80,7 +84,16 @@
             <dt>タイプ：</dt>
             <dd>{{$portfolioTypes[$portfolio->type]}}</dd>
           </dl>
-	</div>
+	      </div>
+        <div class="OSCSS-social-share">
+          <div class="OSCSS-social-title">
+            このポートフォリオを共有する
+          </div>
+          <div class="OSCSS-social-button">
+            <div><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button " data-show-count="false" data-text="{{$portfolio->title}} | ポートフォリオネットワーク">Tweet</a></div>
+            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">シェア</a></div>
+          </div>
+        </div>
       </div>
       @else
       <div class="OSCSS-content-box">
@@ -89,8 +102,7 @@
         </div>
       </div>
       @endif
-    </div>
-</div>
 
-	
+    </div>
+  </div>
 @endsection

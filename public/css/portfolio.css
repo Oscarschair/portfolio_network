@@ -26,9 +26,9 @@
   overflow: hidden;
 }
 .OSCSS-portfolio-icon-inner:before {
-    content: "";
-    display: block;
-    padding-top: 75%;
+  content: "";
+  display: block;
+  padding-top: 75%;
 }
 .OSCSS-portfolio-icon img {
   position: absolute;
@@ -118,4 +118,23 @@
   .OSCSS-content-box-inner dd{
     width: 100%;
   }
+}
+.OSCSS-social-share {
+  position: relative;
+  width: 100%;
+}
+.OSCSS-social-title {
+  text-align: center;
+  color: #cccccc;
+  letter-spacing: 5px;
+}
+.OSCSS-social-button{
+  position: relative;
+  display: flex;
+  width: 80%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+.OSCSS-social-button div{
+  margin: auto;
 }
