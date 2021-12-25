@@ -120,7 +120,7 @@
 	        </div>
 	        <dt>サイトURL：</dt>
                 <dd>
-                  <input name="newURL" value="http://" class="c-text-input" pattern="https?://.*" type="text" id="newURL" required="required">
+                  <input name="newURL" value="https://" class="c-text-input" pattern="https?://.*" type="text" id="newURL" required="required">
 	          <input name="submit" class="btn btn-primary OSCSS-btn50" type="submit" value="サイトを追加する">
 	        </dd>
               </dl>
