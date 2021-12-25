@@ -140,8 +140,9 @@ class PortfolioController extends Controller
       ->first();
 
     	$portfolioTypes = $this->portfolioTypes;
+      $title = $portfolio->title;
 		
-    	return view('portfolio.view', compact('user', 'portfolio','portfolioTypes','urlClicked'));
+    	return view('portfolio.view', compact('title','user', 'portfolio','portfolioTypes','urlClicked'));
     }
     public function viewPortfolio($id)
     {
@@ -161,20 +162,22 @@ class PortfolioController extends Controller
         ->where('id', $portfolio->user_id)
         ->first();
 
+      $portfolioTypes = $this->portfolioTypes;
+      $title = $portfolio->title;
 
-	$portfolioTypes = $this->portfolioTypes;
-	return view('portfolio.view', compact('user', 'portfolio','portfolioTypes','urlClicked'));
+      return view('portfolio.view', compact('title','user', 'portfolio','portfolioTypes','urlClicked'));
     }
     public function viewEditPortfolio($id)
     {
-	$user = Auth::user();
+    	$user = Auth::user();
 
-        $portfolio = DB::table('portfolios')
-        ->where('id', $id)
-        ->first();
-	\Debugbar::addMessage($portfolio);
+      $portfolio = DB::table('portfolios')
+      ->where('id', $id)
+      ->first();
+	    \Debugbar::addMessage($portfolio);
 
-	$portfolioTypes = $this->portfolioTypes;
-	return view('portfolio.edit', compact('user', 'portfolio','portfolioTypes'));
+    	$portfolioTypes = $this->portfolioTypes;
+  
+    	return view('portfolio.edit', compact('user', 'portfolio','portfolioTypes'));
     }
 }

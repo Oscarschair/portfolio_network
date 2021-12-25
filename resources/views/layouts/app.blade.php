@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
     <link rel="canonical" href="{{URL::current()}}">
 
-    @isset($title)<title>{{ $title }}</title>
+    @isset($title)<title>{{ $title }} | {{ config('app.name', 'Laravel') }}</title>
     @else<title>{{ config('app.name', 'Laravel') }}</title>
     @endisset
 
