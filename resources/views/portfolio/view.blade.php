@@ -59,17 +59,13 @@
           <dl>
             <dt>URL：</dt>
             <dd style="display:block;">
-            @auth
-            <form action="{{ route('clickPortfolio', ['id' => $portfolio->id])}}" id="clickPortfolio" method="post" enctype="multipart/form-data">
-                @csrf
-                <div style="display:none;">
-                  <input type="hidden" name="urlClicked" value="{{$portfolio->url}}">
-                </div>
-                <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{$portfolio->url}}</button>
-            </form>
-            @else
-	        <a href="{{route('login')}}">ログイン</a>してURL確認できます。<br>アカウントお持ちでない場合、<a href="{{route('register')}}">登録</a>してください。
-            @endauth
+              <form action="{{ route('clickPortfolio', ['id' => $portfolio->id])}}" id="clickPortfolio" method="post" enctype="multipart/form-data">
+                  @csrf
+                  <div style="display:none;">
+                    <input type="hidden" name="urlClicked" value="{{$portfolio->url}}">
+                  </div>
+                  <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{$portfolio->url}}</button>
+              </form>
             </dd>
           </dl>
           <dl>
