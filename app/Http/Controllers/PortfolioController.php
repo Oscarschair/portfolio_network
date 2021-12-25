@@ -119,31 +119,33 @@ class PortfolioController extends Controller
     }
     public function clickPortfolio(Request $request, $id)
     {
-	\Debugbar::addMessage($request['urlClicked']);
+      \Debugbar::addMessage($request['urlClicked']);
 
-	$urlClicked = $request['urlClicked'];
+      $urlClicked = $request['urlClicked'];
 
-	$user = Auth::user();
+      DB::table('portfolios')
+      ->where('id', $id)
+      ->increment('view');
 
-        DB::table('portfolios')
-        ->where('id', $id)
-        ->increment('view');
+      DB::table('portfolios')
+      ->where('id', $id)
+      ->increment('click');
 
-        DB::table('portfolios')
-        ->where('id', $id)
-        ->increment('click');
+      $portfolio = DB::table('portfolios')
+      ->where('id', $id)
+      ->first();
 
-        $portfolio = DB::table('portfolios')
-        ->where('id', $id)
-        ->first();
+      $user =  DB::table('users')
+      ->where('id', $portfolio->user_id)
+      ->first();
 
-	$portfolioTypes = $this->portfolioTypes;
+    	$portfolioTypes = $this->portfolioTypes;
 		
-	return view('portfolio.view', compact('user', 'portfolio','portfolioTypes','urlClicked'));
+    	return view('portfolio.view', compact('user', 'portfolio','portfolioTypes','urlClicked'));
     }
     public function viewPortfolio($id)
     {
-	$urlClicked = null;
+    	$urlClicked = null;
 
         DB::table('portfolios')
         ->where('id', $id)
@@ -152,10 +154,10 @@ class PortfolioController extends Controller
         $portfolio = DB::table('portfolios')
         ->where('id', $id)
         ->first();
-	\Debugbar::addMessage($portfolio);
+	    \Debugbar::addMessage($portfolio);
 
 
-	$user =  DB::table('users')
+    	$user =  DB::table('users')
         ->where('id', $portfolio->user_id)
         ->first();
 
