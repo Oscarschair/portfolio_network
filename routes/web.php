@@ -43,8 +43,8 @@ Auth::routes(['verify' => true]);
 
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
-Route::get('login/facebook', 'Auth\LoginController@redirectToFacebook');
-Route::get('login/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
+// Route::get('login/facebook', 'Auth\LoginController@redirectToFacebook');
+// Route::get('login/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
 
 
 Route::group(['middleware' => 'auth'], function() {
