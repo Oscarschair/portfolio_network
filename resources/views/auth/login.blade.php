@@ -10,7 +10,10 @@
                 <div class="card-body">
                     <div class="form-group row mt-2">
                         <div class="OSCSS-socialLoginList">
-                            <a href="/login/google" class="btn btn-forGoogle" role="button">
+                            <a href="/login/facebook" class="btn btn-forSocial" role="button">
+                                <img src="img/facebook_logo.png" width="20" height="20"/><span style="margin-left:20px;">Facebookでログイン</span>
+                            </a>
+                            <a href="/login/google" class="btn btn-forSocial" role="button">
                                 <img src="img/google_logo.png" width="20" height="20"/><span style="margin-left:20px;">Googleでログイン</span>
                             </a>
                         </div>

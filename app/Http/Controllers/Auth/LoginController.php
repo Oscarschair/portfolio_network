@@ -81,4 +81,36 @@ class LoginController extends Controller
         
         return $user;
     }
+
+    public function redirectToFacebook()
+    {
+        // Facebook へのリダイレクト
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        // Facebook 認証後の処理
+        $gUser = Socialite::driver('facebook')->stateless()->user();
+
+        dd($user); // Facebookから取得した情報を表示
+
+        // // email が合致するユーザーを取得
+        // $user = User::where('email', $gUser->email)->first();
+        // // 見つからなければ新しくユーザーを作成
+        // if ($user == null) {
+        //     $user = $this->createUserByGoogle($gUser);
+
+	    // DB::table('users')
+        //     ->where('id', $user->id)
+        //     ->update(['email_verified_at' => DB::raw('NOW()')]);
+        // }
+        // // ログイン処理
+        // \Auth::login($user, true);
+
+
+         return redirect('/');
+    }
+
+
 }

@@ -3,7 +3,7 @@
   width: auto;
   margin: auto;
 }
-.btn-forGoogle{
+.btn-forSocial{
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #848484;
@@ -12,14 +12,15 @@
   width: 300px;
   max-width: 100%;
 }
-.btn-forGoogle:hover{
+.btn-forSocial:hover{
   color: #848484;
   background-color: #e5e5e5;
 }
-.btn-forGoogle img{
+.btn-forSocial img{
   width: 20px;
   height: 20px;
 }
+
 .OSCSS-login-line{
     margin: 20px auto;
     text-align: center;
