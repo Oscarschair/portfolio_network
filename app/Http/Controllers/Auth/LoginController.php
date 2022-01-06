@@ -91,7 +91,7 @@ class LoginController extends Controller
     public function handleFacebookCallback()
     {
         // Facebook 認証後の処理
-        $gUser = Socialite::driver('facebook')->stateless()->user();
+        $gUser = Socialite::driver('facebook')->user();
 
         dd($user); // Facebookから取得した情報を表示
 
