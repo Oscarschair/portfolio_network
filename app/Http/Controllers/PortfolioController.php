@@ -82,9 +82,6 @@ class PortfolioController extends Controller
                 $url = $portfolio->url . "/" . $first_token . ".html";
             }
 
-            // JavaScriptでコンソールに出力
-            echo "<script>console.log('Generated URL: " . $url . "');</script>";
-
             // HTTPリクエストのコンテキストを作成
             $context = stream_context_create(array(
                 'http' => array('ignore_errors' => true)
