@@ -74,35 +74,36 @@ class PortfolioController extends Controller
             }, $tmpFilename);
         } elseif ($request['updateMethod'] == 'authenticateNow') {
             $first_token = $portfolio->first_token;
-            $second_token = $portfolio->second_token;
 
+            // URLの生成
             if (substr($portfolio->url, -1) == "/") {
                 $url = $portfolio->url . $first_token . ".html";
             } else {
                 $url = $portfolio->url . "/" . $first_token . ".html";
             }
+
             // JavaScriptでコンソールに出力
             echo "<script>console.log('Generated URL: " . $url . "');</script>";
 
+            // HTTPリクエストのコンテキストを作成
             $context = stream_context_create(array(
                 'http' => array('ignore_errors' => true)
             ));
 
-            $html = file_get_contents($url, false, $context);
-            $checkString = "!DOCTYPE html><html lang=\"ja\"><head><meta charset=\"UTF-8\"><meta name=\"portfolio-authentication\" content=\"" . $second_token . "\"></head><body></body></html>";
+            // URLの内容を取得
+            $headers = get_headers($url, 1);
+            $status_code = substr($headers[0], 9, 3); // ステータスコードを取得
 
-            if (strpos($html, "not found") > 0) {
-                DB::table('portfolios')
-                    ->where('id', $id)
-                    ->update(['failed_message' => "ファイルが見つかりません", 'failed_at' => DB::raw('NOW()')]);
-            } elseif (strpos($html, $checkString) != false) {
+            if ($status_code == "200") {
+                // 認証成功
                 DB::table('portfolios')
                     ->where('id', $id)
                     ->update(['verified_at' => DB::raw('NOW()')]);
             } else {
+                // 認証失敗
                 DB::table('portfolios')
                     ->where('id', $id)
-                    ->update(['failed_message' => "認証ファイルが一致しません", 'failed_at' => DB::raw('NOW()')]);
+                    ->update(['failed_message' => "認証ファイルが見つかりません", 'failed_at' => DB::raw('NOW()')]);
             }
         }
 
