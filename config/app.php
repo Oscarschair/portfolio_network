@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
     'description' => env('APP_DESCRIPTION', 'Description'),
-    'domain' => substr(env('MAIL_FROM_ADDRESS', ''), strpos(env('MAIL_FROM_ADDRESS', ''), '@') ?: 0),
+    'domain' => substr(env('MAIL_FROM_ADDRESS', '') ?: '', strpos(env('MAIL_FROM_ADDRESS', '') ?: '', '@') ?: 0),
 
     'sender_address' => env('MAIL_FROM_ADDRESS'),
     'sender_name' => env('MAIL_FROM_NAME'),
