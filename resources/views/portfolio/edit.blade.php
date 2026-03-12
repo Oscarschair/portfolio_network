@@ -60,7 +60,7 @@
 	        </div>
 	        <textarea rows="5" cols="60" name="description" type="text" id="portfolioDescription" required="required" placeholder="詳細内容" maxlength="5000">{{$portfolio->description}}</textarea>
 	        <input name="submit" class="btn btn-primary OSCSS-btn50" type="submit" value="詳細内容を変更する">
-	      </form>        
+	      </form>
             </dd>
           </dl>
           <dl>
@@ -81,7 +81,7 @@
 		@endfor
 	        </select>
 	        <input name="submit" class="btn btn-primary OSCSS-btn50" type="submit" value="タイプを変更する">
-	      </form>        
+	      </form>
             </dd>
           </dl>
           <dl>
@@ -93,7 +93,7 @@
             (認証失敗 :{{$portfolio->failed_message}} {{$portfolio->failed_at}})
             @endif
             <br>
-            <span class="note">※未完了の場合ポートフォリオはされません。</span>
+            <span class="note">※未完了の場合ポートフォリオは表示されません。</span>
             <div class="OSCSS-double-btn">
               <form action="{{ route('editPortfolio', ['id' => $portfolio->id])}}" id="PortfolioModForm_authenticateNow" method="post" accept-charset="utf-8">
               @csrf
@@ -101,7 +101,7 @@
 	          <input type="hidden" name="updateMethod" value="authenticateNow">
 	        </div>
 	        <input name="submit" class="btn btn-primary" type="submit" value="今すぐ認証する">
-	      </form>  
+	      </form>
               <form action="{{ route('editPortfolio', ['id' => $portfolio->id])}}" id="PortfolioModForm_downloadAuthentication" method="post" accept-charset="utf-8">
               @csrf
                 <div style="display:none;">
@@ -119,7 +119,7 @@
           <dl>
             <dt>表示：</dt>
             <dd>
-	      
+
 	      <form action="{{ route('editPortfolio', ['id' => $portfolio->id])}}" id="PortfolioModForm_switchDisplay" method="POST">
               @csrf
                 <div style="display:none;">
@@ -135,7 +135,7 @@
 	          <div id="swImg"></div>
 	        </div>
 	      </form>
-	      
+
             </dd>
           </dl>
           @endif
@@ -152,5 +152,5 @@
     </div>
 </div>
 
-	
+
 @endsection
