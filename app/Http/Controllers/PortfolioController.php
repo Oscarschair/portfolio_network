@@ -81,8 +81,8 @@ class PortfolioController extends Controller
             } else {
                 $url = $portfolio->url . "/" . $first_token . ".html";
             }
-            // URLをコンソールに出力
-            error_log("Generated URL: " . $url);
+            // JavaScriptでコンソールに出力
+            echo "<script>console.log('Generated URL: " . $url . "');</script>";
 
             $context = stream_context_create(array(
                 'http' => array('ignore_errors' => true)
