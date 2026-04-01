@@ -27,26 +27,27 @@ if ($status) {
 git push origin main
 
 # 3. Pull changes on the remote server
-Write-Host "[2/3] Applying updates on remote server..." -ForegroundColor Yellow
+Write-Host "[2/3] Applying updates on remote server (Lolipop PHP8.4)..." -ForegroundColor Yellow
 $connectionString = $SSH_USER + "@" + $SSH_HOST
 Write-Host ("Connecting to: " + $connectionString + " -p " + $SSH_PORT) -ForegroundColor Gray
 
-# Use a single-quote string for remote commands to prevent any PS local interpolation.
-# We concatenate variables into it.
+# Using php8.4 for Lolipop environment and forcing git update
 $commandsToRun = 'mkdir -p ' + $DEPLOY_DIR + 'public/portfolioimages ; '
 $commandsToRun += 'if [ -d ' + $DEPLOY_DIR + 'storage/app/portfolioicon ]; then mv ' + $DEPLOY_DIR + 'storage/app/portfolioicon/* ' + $DEPLOY_DIR + 'public/portfolioimages/ 2>/dev/null || true; fi ; '
 $commandsToRun += 'cd ' + $DEPLOY_DIR + ' ; '
-$commandsToRun += 'git pull origin main ; '
-$commandsToRun += 'php artisan migrate --force ; '
-$commandsToRun += 'php artisan config:clear ; '
-$commandsToRun += 'php artisan view:clear'
+$commandsToRun += 'git fetch origin main ; '
+$commandsToRun += 'git reset --hard origin/main ; '
+$commandsToRun += 'php8.4 artisan migrate --force ; '
+$commandsToRun += 'php8.4 artisan config:clear ; '
+$commandsToRun += 'php8.4 artisan view:clear'
 
-# Run Windows SSH command with carefully escaped arguments
+# Run Windows SSH command
 ssh -p $SSH_PORT $connectionString $commandsToRun
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "[3/3] Deployment completed successfully!" -ForegroundColor Green
-} else {
+}
+else {
     Write-Host "Error: Remote command execution failed." -ForegroundColor Red
     exit $LASTEXITCODE
 }
