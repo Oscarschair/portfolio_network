@@ -143,6 +143,8 @@ h1, h2, h3, .OSCSS-hero-subtitle {
   box-shadow: var(--card-shadow);
   border: 1px solid rgba(0,0,0,0.03);
   overflow: hidden;
+  height: auto; /* Ensure height isn't overridden by legacy JS */
+  min-height: 250px; /* Base height for safety */
 }
 
 .OSCSS-section-latest-col:hover {
@@ -163,6 +165,7 @@ h1, h2, h3, .OSCSS-hero-subtitle {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
+  background-color: #f1f5f9; /* Fallback color for broken images */
 }
 
 .OSCSS-section-latest-col:hover .OSCSS-section-latest-col-pic-img {
@@ -356,3 +359,16 @@ h1, h2, h3, .OSCSS-hero-subtitle {
     grid-template-columns: 1fr;
   }
 }
+
+/* Animations */
+.animate-box-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate-box-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+

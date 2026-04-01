@@ -2,8 +2,8 @@
 
 @section('content')
 @inject('dateLib', 'App\Libs\DateLib')
-<link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-<script src="{{ asset('js/welcome.js') }}" defer></script>
+<link href="{{ asset('css/welcome.css') }}?v={{ time() }}" rel="stylesheet">
+<script src="{{ asset('js/welcome.js') }}?v={{ time() }}" defer></script>
 
 <div class="OSCSS-main-container">
   <section class="OSCSS-section-hero">

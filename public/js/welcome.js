@@ -1,101 +1,93 @@
 (function () {
-	var curSlider, slidersArray;
-	var curPortfolioSlider, portfolioSlidersArray;
-	var showSlides = function() {
-		i = curSlider;
-		for (j = 0; j < slidersArray.length; j++) {
-			slidersArray[i].style.zindex = j;
-			if (matchMedia('(max-width: 460px)').matches) {
-				if(j > 0){
-					slidersArray[i].style.left = $('.OSCSS-columns').width() + "px" ;
-					slidersArray[i].style.opacity = "0";
-					slidersArray[i].style.width = "0";
-				}else{
-					slidersArray[i].style.left = "0px" ;
-					slidersArray[i].style.opacity = "1";
-					slidersArray[i].style.width = "100%";
-				}
-			}else{
-				if(j > 2){
-					slidersArray[i].style.left = $('.OSCSS-columns').width() / 3 + "px" ;
-					slidersArray[i].style.opacity = "0";
-					slidersArray[i].style.width = "0";
-				}else{
-					slidersArray[i].style.left = $('.OSCSS-columns').width() / 3 * j + "px" ;
-					slidersArray[i].style.opacity = "1";
-					slidersArray[i].style.width = "33%";
-				}
-			}
-			i++;
-			if(i>5){i=0};
-		}
-	}
-	var showPortfolioSlides = function() {
-		i = curPortfolioSlider;
-		for (j = 0; j < portfolioSlidersArray.length; j++) {
-			portfolioSlidersArray[i].style.zindex = j;
-			if (matchMedia('(max-width: 460px)').matches) {
-				if(j > 1){
-					portfolioSlidersArray[i].style.left = $('.OSCSS-section-latest-list').width() + "px" ;
-					portfolioSlidersArray[i].style.display = "none";
-				}else{
-					portfolioSlidersArray[i].style.left = $('.OSCSS-section-latest-list').width()/2*j + "px" ;
-					portfolioSlidersArray[i].style.display = "block";
-				}
-			
-			}else{
-				portfolioSlidersArray[i].style.left = $('.OSCSS-section-latest-list').width()/5*j + "px" ;
-				$('.OSCSS-section-latest').css("height",$('.OSCSS-section-latest-col-pic').height()+40+"px");
-				$('.OSCSS-section-latest-title').css("line-height",$('.OSCSS-section-latest-col-pic').height()+40+"px");
-				$('.OSCSS-section-latest-col').css("height",$('.OSCSS-section-latest-col-pic').height()+20+"px");
-			}
-			i++;
-			if(i>4){i=0};
-		}
+    /**
+     * Helper to set up scrolling for a container
+     */
+    const setupScrollSlider = (containerSelector, prevBtnSelector, nextBtnSelector, scrollAmount) => {
+        const container = $(containerSelector);
+        const prevBtn = $(prevBtnSelector);
+        const nextBtn = $(nextBtnSelector);
 
+        if (!container.length) return;
 
-	}
-	var switchSlides = function(movement) {
-		curSlider = curSlider + movement;
-		if(curSlider>5){curSlider=0};
-		if(curSlider<0){curSlider=5};
-		showSlides();
-	}
-	var switchPortfolioSlides = function(movement) {
-		curPortfolioSlider = curPortfolioSlider + movement;
-		if(curPortfolioSlider>5){curPortfolioSlider=0};
-		if(curPortfolioSlider<0){curPortfolioSlider=5};
-		showPortfolioSlides();
-	}
-	var silderSetup = function() {
-		curSlider = 0;
-		slidersArray = $('.OSCSS-columns-col');
-		$('#OSCSS-prev').css("left", $('#OSCSS-prev').width() * (-1) + "px");
-		$('#OSCSS-next').css("left", $('.OSCSS-columns').width() + "px");
-		
-		$('#OSCSS-prev').on('click', function() {
-			switchSlides(-1);
-		});
-		$('#OSCSS-next').on('click', function() {
-			switchSlides(1);
-		});
-		showSlides();
-		
-		curPortfolioSlider = 0;
-		portfolioSlidersArray = $('.OSCSS-section-latest-col');
-		$('#OSCSS-portfolio-prev').css("left", $('#OSCSS-portfolio-prev').width() * (-1) + "px");
-		$('#OSCSS-portfolio-next').css("left", $('.OSCSS-section-latest-list').width() + "px");
+        nextBtn.on('click', () => {
+            container.animate({
+                scrollLeft: container.scrollLeft() + scrollAmount
+            }, 500);
+        });
 
-		$('#OSCSS-portfolio-prev').on('click', function() {
-			switchPortfolioSlides(-1);
-		});
-		$('#OSCSS-portfolio-next').on('click', function() {
-			switchPortfolioSlides(1);
-		});
+        prevBtn.on('click', () => {
+            container.animate({
+                scrollLeft: container.scrollLeft() - scrollAmount
+            }, 500);
+        });
+    };
 
-		showPortfolioSlides();
-	};
-	$(function(){
-		silderSetup();
-	});
+    /**
+     * Category Slider (Grid)
+     * For categories, we might want to toggle visibility if we want to keep the 
+     * "show 3 at a time" logic while using Grid.
+     */
+    const setupCategoryCarousel = () => {
+        const items = $('.OSCSS-columns-col');
+        const prevBtn = $('#OSCSS-prev');
+        const nextBtn = $('#OSCSS-next');
+        if (!items.length) return;
+
+        let currentIndex = 0;
+        const itemsToShow = matchMedia('(max-width: 768px)').matches ? 1 : 3;
+
+        const updateVisibility = () => {
+            items.each(function(index) {
+                if (index >= currentIndex && index < currentIndex + itemsToShow) {
+                    $(this).show().css('opacity', 1);
+                } else {
+                    $(this).hide().css('opacity', 0);
+                }
+            });
+        };
+
+        nextBtn.on('click', () => {
+            if (currentIndex + itemsToShow < items.length) {
+                currentIndex += itemsToShow;
+            } else {
+                currentIndex = 0; // Loop
+            }
+            updateVisibility();
+        });
+
+        prevBtn.on('click', () => {
+            if (currentIndex - itemsToShow >= 0) {
+                currentIndex -= itemsToShow;
+            } else {
+                currentIndex = Math.max(0, items.length - itemsToShow); // Loop to end
+            }
+            updateVisibility();
+        });
+
+        // Initialize
+        updateVisibility();
+    };
+
+    $(function () {
+        // Portfolio Slider
+        // Use scroll amount equal to card width (300px) + gap (24px)
+        setupScrollSlider('.OSCSS-section-latest-list', '#OSCSS-portfolio-prev', '#OSCSS-portfolio-next', 324);
+
+        // Category Carousel
+        setupCategoryCarousel();
+
+        // Reveal animations on scroll (optional improvement if classes exist)
+        const reveal = () => {
+            $('.animate-box-up').each(function() {
+                const elementTop = $(this).offset().top;
+                const windowBottom = $(window).scrollTop() + $(window).height();
+                if (elementTop < windowBottom - 50) {
+                    $(this).addClass('active');
+                }
+            });
+        };
+        
+        $(window).on('scroll', reveal);
+        reveal(); // Initial check
+    });
 }());
