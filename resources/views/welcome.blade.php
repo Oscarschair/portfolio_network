@@ -12,6 +12,13 @@
       <h1 class="OSCSS-hero-title">チャンスは準備された心に降り立つ</h1>
       <p class="OSCSS-hero-subtitle">Portfolio Network</p>
       <div class="OSCSS-hero-badge">ポートフォリオ共有プラットフォーム</div>
+
+      <div class="OSCSS-description-card hero-overlay-card">
+        <h2>Portfolio Networkとは</h2>
+        <div class="OSCSS-section-description-content">
+          <p><span>Portfolio Network</span>（ピーネット）は、みんなの<span>ポートフォリオサイト</span>をよりたくさんの人に見られるための<span>共有プラットフォーム</span>です。</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -46,12 +53,6 @@
 
   <section class="OSCSS-section-description">
     <div class="OSCSS-section-inner">
-      <div class="OSCSS-description-card animate-box-up">
-        <h2>Portfolio Networkとは</h2>
-        <div class="OSCSS-section-description-content">
-          <p><span>Portfolio Network</span>（ピーネット）は、みんなの<span>ポートフォリオサイト</span>をよりたくさんの人に見られるための<span>共有プラットフォーム</span>です。</p>
-        </div>
-      </div>
 
       <div class="OSCSS-section-header margin-top-lg">
         <h2 class="OSCSS-section-title animate-box-up">ポートフォリオ募集中</h2>

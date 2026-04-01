@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Debugbar;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 
 class PortfolioController extends Controller
 {
+    protected $portfolioTypes;
+
     /**
      * Show the application dashboard.
      *
@@ -41,7 +44,7 @@ class PortfolioController extends Controller
             } else {
                 $tmpString = $portfolio->icon_path;
             }
-            $request->file('file')->storeAs('portfolioicon', $tmpString);
+            $request->file('file')->move(public_path('portfolioimages'), $tmpString);
         } elseif ($request['updateMethod'] == 'editTitle') {
             DB::table('portfolios')
                 ->where('id', $id)

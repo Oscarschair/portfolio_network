@@ -9,6 +9,9 @@ use Illuminate\Support\Collection;
 
 class WelcomeController extends Controller
 {
+    protected $portfolioTypes;
+    protected $portfolioColors;
+
     /**
      * Display a listing of the resource.
      *

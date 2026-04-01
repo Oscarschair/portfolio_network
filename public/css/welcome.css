@@ -238,10 +238,28 @@ h1, h2, h3, .OSCSS-hero-subtitle {
   margin-bottom: 80px;
 }
 
-.OSCSS-description-card h2 {
-  font-size: 2.25rem;
-  margin-bottom: 20px;
-  color: var(--primary-color);
+.OSCSS-description-card.hero-overlay-card {
+  margin-top: 40px;
+  padding: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.hero-overlay-card h2 {
+  color: #ffffff !important;
+  font-size: 1.75rem;
+}
+
+.hero-overlay-card .OSCSS-section-description-content p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-overlay-card .OSCSS-section-description-content span {
+  color: #ffffff;
 }
 
 .OSCSS-section-description-content p {
