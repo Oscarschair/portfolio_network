@@ -1,6 +1,8 @@
 @charset "utf-8";
 
---OSCSS-mainColor: #EE4136;
+:root {
+  --OSCSS-mainColor: #EE4136;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -51,8 +53,11 @@ hr{
 }
 
 body {
-  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Meiryo, メイリオ, "MS P Gothic", "ＭＳ Ｐゴシック", arial, helvetica, sans-serif;
-  background-color: white;
+  font-family: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #F8FAFC;
+  color: #1E293B;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 body,
 #wrapper {
@@ -146,88 +151,85 @@ label.required:after {
 /*フッター*/
 footer {
   width: 100%;
-  height: auto;
-  background-color: #2e4876;
-  color: #ffffff;
+  padding: 60px 0 40px;
+  background-color: #0F172A;
+  color: #94A3B8;
   margin-top: auto;
-  font-weight: bold;
+  font-weight: 500;
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
-footer .pc-only{
-  margin: 10px 0;
 
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
-footer .pc-only ul{
+
+footer .pc-only ul {
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
   list-style: none;
-  margin: 0;
+  margin: 0 0 40px;
 }
+
 footer .pc-only ul li {
-  float: left;
   font-size: 14px;
 }
-footer .pc-only ul li:nth-child(n + 2) {
-  border-left:solid 2px white;
-}
 
-
-/* スクリーンが460px以下のCSSを適用 */
-@media screen and (max-width: 480px) {
-  footer .sp-only{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px 0;
-    width: 100%;
-    text-align: center;
-  }
-  footer .sp-only div{
-    width: 15%;
-  }
-  footer .sp-only ul{
-    width: 35%;
-    height: fit-content;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: left;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  footer .sp-only ul li {
-    width: 100%;
-  }
-}
-
-.OSCSS-footer-item{
-  margin: 20px;
-  color: #ffffff;
-}
-
-.OSCSS-footer-item:link,
-.OSCSS-footer-item:visited,
-.OSCSS-footer-item:hover,
-.OSCSS-footer-item:active {
-  color: white;
+.OSCSS-footer-item {
+  color: #94A3B8;
+  transition: color 0.3s ease;
   text-decoration: none;
 }
-.OSCSS-footer-rights{
-  text-align: center;
-  margin-bottom: 10px;
 
-}
-.OSCSS-footer-rights a{
+.OSCSS-footer-item:hover {
   color: #ffffff;
 }
+
+.OSCSS-footer-rights {
+  text-align: center;
+  font-size: 0.875rem;
+  opacity: 0.8;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.OSCSS-footer-rights a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
 @media screen and (max-width: 480px) {
-  .OSCSS-footer-item{
-    margin: 8px;
-    font-size:10px;
+  footer {
+    padding: 40px 0 20px;
   }
-  .OSCSS-footer-rights{
-    width: 100%;
-    font-size: 0.65rem;
+  
+  footer .sp-only {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  footer .sp-only ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .OSCSS-footer-item {
+    font-size: 12px;
+  }
+  
+  .OSCSS-footer-rights {
+    font-size: 0.75rem;
   }
 }
 

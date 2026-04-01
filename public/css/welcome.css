@@ -1,292 +1,330 @@
-.OSCSS-section-hero{
+:root {
+  --primary-color: #4F46E5;
+  --primary-glow: rgba(79, 70, 229, 0.4);
+  --secondary-color: #7C3AED;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --bg-soft: #F8FAFC;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-soft);
+}
+
+h1, h2, h3, .OSCSS-hero-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+}
+
+.OSCSS-main-container {
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.OSCSS-section-hero {
   position: relative;
-  color: #ffffff;
-  background-color: #000000;
-}
-.OSCSS-section-hero img{
-  width: 100%;
-  height: 300px;
-  opacity: 0.8;
-  object-fit: cover;
-}
-.OSCSS-section-hero-title{
-  position: absolute;
-  left: 40px;
-  top: 40px;
-  text-shadow: 3px 3px 1px rgb(0 0 0 / 30%);
-  opacity: 1;
-  z-index: 2;
-}
-.OSCSS-section-inner{
-  padding: 40px;
-}
-.OSCSS-section-hero-caption{
-  display: inline-block;
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-.OSCSS-section-hero-label{
-  display: inline-block;
-  font-size: 18px;
-  background-color: #56aacb;
-  padding: 2px 16px 2px 16px;
-}
-@media screen and (max-width: 460px) {
-  .OSCSS-section-hero-title{
-    left: 20px;
-    top: 20px;
-//  text-shadow: 3px 3px 1px rgb(0 0 0 / 30%);
-//  opacity: 1;
-  }
-  .OSCSS-section-inner{
-    padding: 40px 0;
-  }
-  .OSCSS-section-hero-caption{
-    font-size: 15px;
-    font-weight: 800;
-    margin-bottom: 0px;
-  }
-  .OSCSS-section-hero-label{
-    font-size: 11px;
-  }
-  .OSCSS-section-hero img{
-//  width: 100%;
-    height: 150px;
-//  opacity: 0.8;
-//  object-fit: cover;
-  }
-}
-.OSCSS-section-latest{
-  position: relative;
-  background-color: #ffffff;
-}
-.OSCSS-section-latest .OSCSS-section-inner{
+  min-height: 500px;
   display: flex;
-  padding: 0;
-}
-.OSCSS-section-latest h2{
-  font-size: 20px;
-  margin: 0;
-  width: 20%;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-}
-.OSCSS-section-latest-list{
-  position:relative;
-  width: 80%;
-  margin: 10px auto;  
-  padding: 0 10px;
-}
-.OSCSS-section-latest-col{
-  position: absolute;
-  border-radius: 15px;
-  width: 19%;
-  height: 100%;
-  margin: auto 5px;
-  padding: 8px;
-  background-color: #ffffff;
-  transition: 0.6s ease;
-  filter: drop-shadow(2px 2px 2px grey);
-}
-@media screen and (max-width: 460px) {
-  .OSCSS-section-latest{
-    position: relative;
-    height: 170px;
-  }
-  .OSCSS-section-latest h2{
-    font-size: 20px;
-    margin: 0;
-    width: auto;
-    height: 50px;
-    line-height: 50px;
-  }
-  .OSCSS-section-latest .OSCSS-section-inner{
-    display: block;
-    padding: 0;
-  }
-  .OSCSS-section-latest-list{
-    width: 70%;
-    margin: 0 auto;
-    padding: 0;
-  }
-}
-.OSCSS-section-latest-col:hover{
-  background-color: #e3e3e3;
-}
-.OSCSS-section-latest-col-pic{
-  position: relative;
-  width: 100%;
-  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
   overflow: hidden;
-  border: 1px solid #000000;
-  border-radius: 5px; 
 }
-.OSCSS-section-latest-col-pic:before{
-    content: "";
-    display: block;
-    padding-top: 75%;
-}
-.OSCSS-section-latest-col-pic img{
+
+.OSCSS-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
-  padding: 5px;
-  border-radius: 5px; 
-}
-.OSCSS-section-latest-col-desc{
-  position: relative;
-  height: 30%;
-  text-align: center;
-  overflow: hidden;
-  line-height: 2.5;
-}
-.OSCSS-section-latest-col-type{
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 15px;
-}  
-.OSCSS-section-latest-col-title{
-  font-size: 12px;
-  font-weight: 700;
-  color: #000000;
-}
-@media screen and (max-width: 460px) {
-  .OSCSS-section-latest-col{
-    width: 48%;
-    height: auto;
-    text-align: center;
-    margin: 0;
-  }
-  .OSCSS-section-latest-col-type{
-    padding: 0;
-    margin: 0 auto;
-  }
-  .OSCSS-section-latest-col-pic img{
-    width: 100%;
-    height: auto;
-  }
-  .OSCSS-section-latest-col-desc{
-    height: auto;
-    line-height: 1.5;
-  }
-}
-.OSCSS-section-description{
-  position: relative;
-  color: #000000;
-  background-color: #ebebeb;
-}
-.OSCSS-section-description h2{
-  text-align: center;
-  margin-bottom: 35px;
-}
-.OSCSS-section-description-content{
-  font-size: 15px;
-  text-align: center;
-  width: 650px;
-  margin: 0 auto;
-  margin-bottom: 35px;
-}
-@media screen and (max-width: 460px) {
-  .OSCSS-section-description-content{
-    width: 90%;
-  }
-}
-.OSCSS-columns{
-  position: relative;
-  display: flex;
-  width: 80%;
-  
-  max-width:1080px;
-  height: 500px;
-  margin: 0 auto;
-}
-.OSCSS-columns-col{
-  position: absolute;
-  height: 500px;
-  background-color: #ffffff;
-  text-align: center;
-  font-size: 20px;
-  border: 1px solid #000000;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: 0.6s ease;
-}
-.OSCSS-columns-col-title{
-  height: 60px;
-  line-height: 60px;
-  color: #ffffff;
-  background-color: #2e4876;
-}
-.OSCSS-columns-col-img{
-  width: 60%;
-  max-width: 188px;
-  margin: 20px auto; 
-}
-.OSCSS-columns-col-desc{
-  width: 80%;
-  margin: 20px auto; 
-  font-size: 12px;
-}
-.OSCSS-columns-btn{
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  font-size: 14px;
-  line-height: 2.5;
-  font-weight: 700;
-  color: #ffffff;
-  background-color: #2e4876;
-}
-.OSCSS-columns-btn:hover{
-  color: #2e4876;
-  background-color: #ffffff;
-}
-@media screen and (max-width: 460px) {
-  .OSCSS-columns{
-    width: 65%;
-    height: 450px;
-  }
-  .OSCSS-columns-col{
-    height: 450px;
-  }
-  .OSCSS-columns-btn{
-    bottom: 10px;
-  }
-}
-#OSCSS-prev, #OSCSS-next, #OSCSS-portfolio-prev, #OSCSS-portfolio-next{
-  cursor: pointer;
-  position: absolute;
-  width: 10%;
-  line-height: 500px;
-  color: #979797;
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-  transition: 0.6s ease;
-  user-select: none;
-}
-#OSCSS-prev:hover, #OSCSS-next:hover, #OSCSS-portfolio-prev:hover, #OSCSS-portfolio-next:hover{
-  background-color: #d3d3d3;
-}
-@media screen and (max-width: 460px) {
-  #OSCSS-prev, #OSCSS-next{
-    width: 25%;
-    line-height: 450px;
-  }
-  #OSCSS-portfolio-prev, #OSCSS-portfolio-next{
-    width: 15%;
-    line-height: 110px;
-  }
-}
-@media screen and (min-width: 461px) {
-  #OSCSS-portfolio-prev, #OSCSS-portfolio-next{
-    display: none;
-  }
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  opacity: 0.6;
 }
 
+.OSCSS-section-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.OSCSS-hero-title {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.OSCSS-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.OSCSS-hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Shared Section Styles */
+.OSCSS-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.OSCSS-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.OSCSS-section-title {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.OSCSS-section-line {
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Latest Portfolios List */
+.OSCSS-section-latest-list {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 5px;
+  scrollbar-width: none;
+}
+
+.OSCSS-section-latest-list::-webkit-scrollbar {
+  display: none;
+}
+
+.OSCSS-portfolio-card-link {
+  flex: 0 0 280px;
+  text-decoration: none;
+}
+
+.OSCSS-section-latest-col {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(0,0,0,0.03);
+  overflow: hidden;
+}
+
+.OSCSS-section-latest-col:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.OSCSS-section-latest-col-pic {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/2;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.OSCSS-section-latest-col-pic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.OSCSS-section-latest-col:hover .OSCSS-section-latest-col-pic-img {
+  transform: scale(1.05);
+}
+
+.OSCSS-card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, var(--primary-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.OSCSS-section-latest-col:hover .OSCSS-card-glow {
+  opacity: 1;
+}
+
+/* Nav Buttons */
+.OSCSS-nav-btn {
+  background: #ffffff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.OSCSS-nav-btn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Description Section */
+.OSCSS-description-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 24px;
+  text-align: center;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 80px;
+}
+
+.OSCSS-description-card h2 {
+  font-size: 2.25rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.OSCSS-section-description-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.OSCSS-section-description-content span {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Category Columns */
+.OSCSS-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.OSCSS-columns-col {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.OSCSS-columns-col:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.OSCSS-columns-col-title h3 {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.OSCSS-columns-col-img {
+  width: 100px;
+  height: 100px;
+  background: var(--bg-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease;
+}
+
+.OSCSS-columns-col:hover .OSCSS-columns-col-img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.OSCSS-columns-col-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+
+.OSCSS-columns-btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.OSCSS-columns-btn:hover {
+  background: var(--secondary-color);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
+}
+
+/* Helpers */
+.margin-top-lg {
+  margin-top: 50px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .OSCSS-hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .OSCSS-section-inner {
+    padding: 50px 15px;
+  }
+  
+  .OSCSS-description-card {
+    padding: 30px 20px;
+  }
+  
+  .OSCSS-columns {
+    grid-template-columns: 1fr;
+  }
+}

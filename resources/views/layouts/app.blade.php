@@ -19,24 +19,24 @@
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
     <link rel="canonical" href="{{URL::current()}}">
 
-    @isset($title)<title>{{ $title }} | {{ config('app.name', 'Laravel') }}</title>
-    @else<title>{{ config('app.name', 'Laravel') }}</title>
+    @isset($title)<title>{{ $title }} | {{ config('app.name', 'Portfolio Network') }}</title>
+    @else<title>{{ config('app.name', 'Portfolio Network') }}</title>
     @endisset
 
     @isset($meta_description)<meta content="{{$meta_description}}" name='description'>
-    @else<meta content="{{ config('app.description', 'description') }}" name='description'>
+    @else<meta content="チャンスは準備された心に降り立つ。すべてのクリエイターのためのポートフォリオ共有プラットフォーム。" name='description'>
     @endisset
 @isset($meta_keywords)<meta content="{{$meta_keywords}}" name='keywords'>
-    @else<meta content="Portifolio,Network,ポートフォリオ,共有,プラットフォーム" name='keywords'>
+    @else<meta content="Portfolio,Network,ポートフォリオ,共有,プラットフォーム,Webデザイナー,イラストレーター,CGクリエイター" name='keywords'>
     @endisset
 
     <meta property="og:url" content="{{ \Request::fullUrl() }}" />
     @isset($title)<meta property="og:title" content="{{ $title }}" />
-    @else<meta property="og:title" content="{{ config('app.name', 'Portifolio Network') }}" />
+    @else<meta property="og:title" content="Portfolio Network" />
     @endisset
 @isset($meta_description)<meta property="og:description" content="{{$meta_description}}" />
-    @else<meta property="og:description" content="あなたの才能は秘めたままにしないポートフォリオ共有プラットフォーム">
-    @endisset<meta property="og:site_name" content="Portifolio Network" />
+    @else<meta property="og:description" content="チャンスは準備された心に降り立つ。すべてのクリエイターのためのポートフォリオ共有プラットフォーム。">
+    @endisset<meta property="og:site_name" content="Portfolio Network" />
     @isset($meta_image_path)
     <meta property="og:image" content="{{$meta_image_path}}" />
     @else<meta property="og:image" content="{{asset('img/logo.png')}}" />
@@ -51,16 +51,15 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script src="{{ asset('js/jquery.min.js') }}" ></script>
     <script src="{{ asset('js/jquery.waypoints.min.js') }}" ></script>
     <script src="{{ asset('js/common.js') }}" defer></script>
     <script src="{{ asset('js/header.js') }}" defer></script>
 
-    <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap" rel="stylesheet">
+    <!-- Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}

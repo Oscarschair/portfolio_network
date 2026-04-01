@@ -1,225 +1,144 @@
-#OSCSS-canvas{
-    position: fixed;
-    width: 100%;
-    height: 0;
-    background-color: #ffffff;
-    z-index: 9;
-    transition: all 0.3s ease-out;
-    opacity: 0.5;
-}
 /* ========================================
-    ヘッダー
+    Header Modernization
 ========================================= */
-#header{
-  position:fixed;
-  display:block;
-  width: 100%;
-  max-height: 60px;
-  z-index:9;
-  background-color: white;
-  top:0px;
-  padding: 10px;
-  border-bottom: thin solid rgb(231, 231, 231);
-  box-shadow : 0px  1px 5px #ebebeb ;
-}
-#header-block{
-  position: relative;
-  max-width: 1260px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 40px;
-}
-#logo{
-  height: 40px;
-  width: auto;
-  margin-left: 10px;
-}
-.header-nav{
-  position: absolute;
+#header {
+  position: fixed;
   top: 0;
-  bottom: 0; 
-  right: 0;
-  line-height: 40px;
-}
-
-.header-nav a{
-  position: relative;
-  text-decoration: none;
-  color:#151719;
-}
-.OSCSS-brand{
-  display: inline-block;
-  height: 40px;
-}
-#OSCSS-searcher{
-  position: absolute;
-  top: 60px;
   left: 0;
   width: 100%;
-  height: 40px;
-  z-index: -1;
+  height: 70px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
 }
-#GlobalSearcher{
-  opacity: 0;
-  transition: all 1s ease-out;
-}
-#OSCSS-searcher .c-text-input{
+
+#header-block {
   width: 100%;
-  height: 35px;
-  border: none;
-  outline: none;
-  pointer-events: none;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.OSCSS-nav{
-  display: inline-block;
-  _display: inline;
+
+#logo {
+  height: 32px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
 }
-#OSCSS-nav-search img{
-  position: relative;
-  top: -2px;
+
+.OSCSS-brand {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.OSCSS-brand:hover {
+  transform: scale(1.02);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.OSCSS-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.OSCSS-nav-item {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #475569;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.OSCSS-nav-item:hover {
+  background: rgba(79, 70, 229, 0.08);
+  color: #4F46E5;
+}
+
+/* Auth Buttons */
+.OSCSS-nav-item[href*="login"] {
+  color: #4F46E5;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+.OSCSS-nav-item[href*="register"] {
+  background: #4F46E5;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+
+.OSCSS-nav-item[href*="register"]:hover {
+  background: #4338CA;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+}
+
+#OSCSS-nav-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#OSCSS-nav-search:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+#OSCSS-nav-search img {
   width: 20px;
   height: 20px;
-  cursor: pointer;
-}
-.OSCSS-nav-item{
-  margin: auto 10px;
-}
-.header-nav-bottom{
-  display: none;
-}
-/*　ハンバーガーボタン　*/
-.hamburger {
-  display : none;
-  position: fixed;
-  z-index : 3;
-  right : 13px;
-  top   : 12px;
-  width : 42px;
-  height: 42px;
-  cursor: pointer;
-  text-align: center;
-}
-.hamburger span {
-  display : block;
-  position: absolute;
-  width   : 30px;
-  height  : 2px ;
-  left    : 6px;
-  background : #555;
-  -webkit-transition: 0.3s ease-in-out;
-  -moz-transition   : 0.3s ease-in-out;
-  transition        : 0.3s ease-in-out;
-}
-.hamburger span:nth-child(1) {
-  top: 10px;
-}
-.hamburger span:nth-child(2) {
-  top: 20px;
-}
-.hamburger span:nth-child(3) {
-  top: 30px;
+  opacity: 0.6;
 }
 
-/* ナビ開いてる時のボタン */
-.hamburger.active span:nth-child(1) {
-  top : 16px;
-  left: 6px;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform   : rotate(-45deg);
-  transform        : rotate(-45deg);
-}
-
-.hamburger.active span:nth-child(2),
-.hamburger.active span:nth-child(3) {
-  top: 16px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform   : rotate(45deg);
-  transform        : rotate(45deg);
-}
-
-
-
-@media screen and (max-width: 460px) {
-  #logo{
-    height: 40px;
-    margin-left: 3px;
-  }
-  .hamburger{
-    display: block;
-  }
-  #OSCSS-nav-search{
+/* Mobile Adjustments */
+@media screen and (max-width: 1024px) {
+  .OSCSS-nav-item:not([href*="login"]):not([href*="register"]) {
     display: none;
   }
-  .OSCSS-nav-item{
-    margin: 0;
-  }
-  .header-nav{
-    display: flex;
-    position: fixed;
-    z-index : 2;
-    top  : 0;
-    left : 0;
-    color: #000;
-    text-align: center;
-    transform: translateX(100%);
-    transition: all 0.6s;
-    width: 100%;
-  }
-  .header-nav-closer{
-    display: block;
-    width: 10%;
-    background: #ffffff;
-    opacity: 0.8;
-  }
-  .header-nav-content{
-    display: block;
-    width: 90%;
-    background: #ffffff;
-  }
-  .header-nav-bottom{
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    width: 90%;
-    background: #ffffff;
-    padding-left: 20px;
-  }
-  .header-nav-bottom a{
-    display: inline-block;
-    color: #3b3b3b;
-    width: 100%;
-    text-align: left;
-  }
-  .header-nav .OSCSS-nav {
-    background: #ffffff;
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-  }
-  .header-nav .OSCSS-nav a{
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-    border-bottom: 1px solid #223488;
-  }
-  .header-nav .OSCSS-nav a:hover{
-    background :#ddd;
-  }
+}
 
-  .header-nav .OSCSS-nav a {
-    display: block;
-    color: #000;
-    padding: 1em 0;
-    text-decoration :none;
+@media screen and (max-width: 480px) {
+  #header {
+    height: 60px;
   }
-  .header-nav-bottom{
-    display: block;
-  }
-  /* このクラスを、jQueryで付与・削除する */
-  nav.header-nav.active {
-    transform: translateX(0%);
+  
+  .OSCSS-nav-item {
+    font-size: 0.85rem;
+    padding: 6px 12px;
   }
 }
 
+/* Hamburger - only for very small screens or extra menu */
+.hamburger {
+  width: 30px;
+  height: 30px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+}
 
-
+.hamburger span {
+  width: 100%;
+  height: 2px;
+  background: #1E293B;
+  border-radius: 2px;
+}
