@@ -1,4 +1,18 @@
-* text=auto
+# Standardize Line Endings
+# https://help.github.com/articles/dealing-with-line-endings/
+
+# Enforce LF for all text files (recommended for Docker and cross-platform consistency)
+* text=auto eol=lf
+
+# Explicitly mark binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+
+# Files used for linting/vendoring
 *.css linguist-vendored
 *.scss linguist-vendored
 *.js linguist-vendored

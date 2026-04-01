@@ -1,0 +1,15 @@
+node_modules
+vendor
+.git
+.env
+Dockerfile
+docker-compose.yml
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*.php
+storage/logs/*.log
+npm-debug.log
+.editorconfig
+.styleci.yml
+phpunit.xml
+tests

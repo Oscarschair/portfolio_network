@@ -15,3 +15,5 @@ yarn-error.log
 /.vscode
 /vendor/
 /vendor_old/
+/public/userimages
+/public/portfolioimages

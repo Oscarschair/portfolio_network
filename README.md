@@ -1,66 +1,82 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Portfolio Network
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+クリエイターが自身のポートフォリオサイトを登録し、プロフィールを公開・共有できるプラットフォームを提供するLaravelアプリケーションです。
 
-## About Laravel
+## 特徴
+- ユーザー登録・ログイン (Google OAuth認証対応)
+- マイページからのプロフィール管理 (カスタムアイコン、自己紹介など)
+- ポートフォリオサイト（URL）の登録および所有者認証機能
+- クリエイタープロフィールの公開ページ (`/profile/{id}`)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 開発環境セットアップ
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+本プロジェクトは Docker を用いた開発環境 (`docker-compose`) に対応しています。
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. リポジトリのクローンとインストール
+```bash
+git clone [repository_url]
+cd portfolio_network
+composer install
+npm install
+```
 
-## Learning Laravel
+### 2. 環境変数の設定
+`.env.example` をコピーして `.env` を作成し、環境に合わせて設定してください。
+```bash
+cp .env.example .env
+```
+Docker で起動する際の主要な設定項目（`docker-compose.yml`の設定と合致します）：
+- `DB_CONNECTION=mysql`
+- `DB_HOST=mysql`
+- `DB_PORT=3306`
+- `DB_DATABASE=LAA1377707-portdb211210` (新規環境の場合は `laravel_db`)
+- `DB_USERNAME=root`
+- `DB_PASSWORD=password`
+- `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET`: Googleログイン用APIキー
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 3. Docker によるサーバー起動
+```bash
+docker-compose up -d --build
+```
+起動後は `http://localhost:8080/` または指定したアプリURLからアクセス可能です。
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 4. アプリケーションキーの生成とDBマイグレーション
+Dockerコンテナ（`app`）内でコマンドを実行し、初期設定を行います。
+```bash
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan migrate
+```
 
-## Laravel Sponsors
+### 5. ストレージリンクの作成
+ユーザー画像のアップロード用にディレクトリのリンクを作成します。
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+**Windows環境での注意：**
+もし `public/userimages` などのシンボリックリンクがテキストファイルとしてチェックアウトされてしまっている場合は、手動で削除してから実行してください。
+```bash
+docker-compose exec app php artisan storage:link
+```
+※WindowsのDocker環境ではジャンクションをホスト側から実行しなければいけないケースもあるため、画像がアップロードできても表示されない場合はホスト（Windows側）から `php artisan storage:link` の実行をお試しください。
 
-### Premium Partners
+### 6. フロントエンドのビルド
+```bash
+npm run dev
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+### 7. テストメール送信設定（オプション）
+本環境ではDocker内にメールサーバーが構築されていないため、ユーザー登録時の「認証メール」などは送信エラーになります。
+これを防ぐため、ローカル開発時は `.env` ファイルのメール設定を `log` ドライバーに変更してください。
+これにより、認証メールの本文（認証URL含む）が画面にエラーを出さずに `storage/logs/laravel.log` の一番下へ出力されるようになります。
 
-## Contributing
+```env
+MAIL_MAILER=log
+MAIL_FROM_ADDRESS="noreply@portfolionetwork.local"
+```
+（※変更後は `docker-compose exec app php artisan config:clear` を実行して設定を反映させてください）
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 主要な構成
+- **バックエンド**: Laravel 11 / PHP 8.3 Apache (Docker)
+- **データベース**: MySQL 8.0 (Docker) / phpMyAdmin (`http://localhost:8081/`)
+- **フロントエンドビルド**: Laravel Mix (`webpack.mix.js` / `package.json`)
+- **特殊ライブラリ**: 
+  - `laravel/socialite` (SNSログイン)
+  - `sunra/php-simple-html-dom-parser` (ポートフォリオサイトのタグ解析・認証など)
