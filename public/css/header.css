@@ -18,102 +18,94 @@
 
 #header-block {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 #logo {
-  height: 32px;
+  height: 36px;
   width: auto;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+  display: block;
 }
 
 .OSCSS-brand {
   display: flex;
   align-items: center;
-  transition: transform 0.2s ease;
-}
-
-.OSCSS-brand:hover {
-  transform: scale(1.02);
+  z-index: 1001;
 }
 
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .OSCSS-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .OSCSS-nav-item {
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: #475569;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  transition: all 0.2s ease;
+  padding: 10px 20px;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .OSCSS-nav-item:hover {
   background: rgba(79, 70, 229, 0.08);
   color: #4F46E5;
+  transform: translateY(-1px);
 }
 
-/* Auth Buttons */
 .OSCSS-nav-item[href*="login"] {
   color: #4F46E5;
-  border: 1px solid rgba(79, 70, 229, 0.2);
 }
 
 .OSCSS-nav-item[href*="register"] {
   background: #4F46E5;
   color: #ffffff;
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
-}
-
-.OSCSS-nav-item[href*="register"]:hover {
-  background: #4338CA;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
 }
 
 #OSCSS-nav-search {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  background: transparent;
+  transition: all 0.2s ease;
 }
 
 #OSCSS-nav-search:hover {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0,0,0,0.04);
 }
 
 #OSCSS-nav-search img {
   width: 20px;
   height: 20px;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 /* Mobile Adjustments */
-@media screen and (max-width: 1024px) {
-  .OSCSS-nav-item:not([href*="login"]):not([href*="register"]) {
+@media screen and (max-width: 1100px) {
+  .header-nav-bottom {
     display: none;
   }
 }
+
 
 @media screen and (max-width: 480px) {
   #header {

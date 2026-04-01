@@ -108,14 +108,20 @@ h1, h2, h3, .OSCSS-hero-subtitle {
   border-radius: 2px;
 }
 
-/* Latest Portfolios List */
 .OSCSS-section-latest-list {
   position: relative;
   display: flex;
-  gap: 20px;
+  gap: 24px;
   overflow-x: auto;
-  padding: 20px 5px;
+  padding: 30px 10px;
   scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.OSCSS-section-latest-list-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 .OSCSS-section-latest-list::-webkit-scrollbar {
@@ -123,9 +129,10 @@ h1, h2, h3, .OSCSS-hero-subtitle {
 }
 
 .OSCSS-portfolio-card-link {
-  flex: 0 0 280px;
+  flex: 0 0 300px;
   text-decoration: none;
 }
+
 
 .OSCSS-section-latest-col {
   position: relative;
@@ -180,27 +187,41 @@ h1, h2, h3, .OSCSS-hero-subtitle {
 
 /* Nav Buttons */
 .OSCSS-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   background: #ffffff;
   border: none;
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--text-main);
-  transition: all 0.3s ease;
-  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 50;
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .OSCSS-nav-btn:hover {
   background: var(--primary-color);
   color: #ffffff;
-  transform: scale(1.1);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 20px var(--primary-glow);
 }
+
+#OSCSS-portfolio-prev, #OSCSS-prev { left: -25px; }
+#OSCSS-portfolio-next, #OSCSS-next { right: -25px; }
+
+@media (max-width: 1300px) {
+  #OSCSS-portfolio-prev, #OSCSS-prev { left: 10px; }
+  #OSCSS-portfolio-next, #OSCSS-next { right: 10px; }
+}
+
 
 /* Description Section */
 .OSCSS-description-card {
@@ -234,11 +255,18 @@ h1, h2, h3, .OSCSS-hero-subtitle {
 }
 
 /* Category Columns */
+.OSCSS-columns-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .OSCSS-columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  width: 100%;
 }
+
 
 .OSCSS-columns-col {
   background: #ffffff;

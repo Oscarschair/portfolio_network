@@ -74,9 +74,31 @@ MAIL_FROM_ADDRESS="noreply@portfolionetwork.local"
 （※変更後は `docker-compose exec app php artisan config:clear` を実行して設定を反映させてください）
 
 ## 主要な構成
+### 3. キャッシュ対策
+- ブラウザのキャッシュによってデザイン変更が反映されないことを防ぐため、CSS や JS の読み込み時には常に `?v={{ date('YmdHi') }}` などのバージョン情報を付与すること。
+
+## Git 運用ルール
+- 開発環境（Docker/Linux）との整合性を保つため、リポジトリ内の改行コードは **LF** で統一する。
+- Windows 環境の Git クライアントを使用する場合でも、`.gitattributes` の設定に従い `LF` でチェックアウトされるように構成されていることを確認する。
+
+## サイトマップ生成
+- `resources/views/sitemap.blade.php` は XML 形式で出力される。
+- XML 宣言 (`<?xml ... ?>`) が PHP の開始タグと誤認してリンターエラーを引き起こすのを防ぐため、文字分割などのエスケープ処理を施して出力すること。
+
 - **バックエンド**: Laravel 11 / PHP 8.3 Apache (Docker)
 - **データベース**: MySQL 8.0 (Docker) / phpMyAdmin (`http://localhost:8081/`)
 - **フロントエンドビルド**: Laravel Mix (`webpack.mix.js` / `package.json`)
 - **特殊ライブラリ**: 
   - `laravel/socialite` (SNSログイン)
   - `sunra/php-simple-html-dom-parser` (ポートフォリオサイトのタグ解析・認証など)
+
+## 技術的補足
+
+### 改行コードについて
+本プロジェクトは Docker (Linux) 環境での動作を前提としています。Windows 環境で開発する場合、改行コードの混在を防ぐために `.gitattributes` を設定しています。
+Git の `core.autocrlf` 設定に関わらず、リポジトリ内およびチェックアウト時は `LF` で統一するように構成されています。
+
+### キャッシュバスティング (CSS Versioning)
+ブラウザキャッシュによるスタイルの反映遅延を防ぐため、主要な CSS リンクには `?v=YYYYMMDDHi` 形式のクエリパラメータを付与しています。
+新しいスタイルを適用した際は、`resources/views/layouts/app.blade.php` 等の該当箇所を確認してください。
+

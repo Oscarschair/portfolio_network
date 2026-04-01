@@ -62,12 +62,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}?<?php echo date('Ymd-Hi'); ?>" type="text/css">
-    {{-- <link href="{{ asset('FontAwesome/css/all.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('css/header.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ date('YmdHi') }}" type="text/css">
+    <link href="{{ asset('css/header.css') }}?v={{ date('YmdHi') }}" rel="stylesheet">
+
 
 
 
@@ -107,42 +106,32 @@
                 <a class="OSCSS-brand" href="{{ url('/') }}">
                     <img id="logo" src="{{ asset('/img/logo.png') }}" width="140" height="40" alt="{{ config('app.name', 'Laravel') }}">
                 </a>
-		 <h1>{{ config('app.name', 'Laravel') }} {{ config('app.description', 'description') }}</h1>
-		 <nav class="header-nav">
-		     <div class="header-nav-closer"></div>
-		     <div class="header-nav-content">
-		       <a id="OSCSS-nav-search"><img src="/img/search.png" alt="検索" width="40" height="40"></a>
-		       <!-- 認証前のリンク -->
-		       <div class="OSCSS-nav">
-		       @guest
-		         <a class="OSCSS-nav-item" href="{{route('login')}}">ログイン</a>
-		         <a class="OSCSS-nav-item" href="{{route('register')}}">会員登録</a>
-		       <!-- 認証済みのリンク -->
-		       @else
-		         <a class="OSCSS-nav-item" href="{{ route('myprofile') }}"><i class="fas fa-home fa-fw"></i>マイページ</a>
-		         <a class="OSCSS-nav-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-		         <i class="fas fa-sign-out-alt"></i>&nbsp;ログアウト</a>
-		         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-		         @csrf
-		         </form>
-		       @endguest
-		     </div>
-		     <div class="header-nav-bottom">
-		         <a class="OSCSS-nav-item" href="{{ route('guide') }}">ご利用ガイド</a>
-		         <a class="OSCSS-nav-item" href="{{ route('contact') }}">お問い合わせ</a>
-		         <a class="OSCSS-nav-item" href="{{ route('company') }}">運営について</a>
-		         <a class="OSCSS-nav-item" href="{{ route('terms') }}">ご利用規約</a>
-		         <a class="OSCSS-nav-item" href="{{ route('privacypolicy') }}">プライバシーポリシー</a>
-		     </div>
-		     </div>
+                
+                <nav class="header-nav">
+                    <div class="header-nav-content">
+                        <div class="OSCSS-nav">
+                            <a id="OSCSS-nav-search"><img src="/img/search.png" alt="検索" width="40" height="40"></a>
+                            @guest
+                                <a class="OSCSS-nav-item" href="{{route('login')}}">ログイン</a>
+                                <a class="OSCSS-nav-item" href="{{route('register')}}">会員登録</a>
+                            @else
+                                <a class="OSCSS-nav-item" href="{{ route('myprofile') }}">マイページ</a>
+                                <a class="OSCSS-nav-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">ログアウト</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            @endguest
+                        </div>
+                    </div>
                 </nav>
                 
                 <div class="hamburger">
-		  <span></span>
-		  <span></span>
-		  <span></span>
-		</div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
+
             <div id="OSCSS-searcher">
               <form action="{{route('globalSearch')}}" id="GlobalSearcher" method="post" enctype="multipart/form-data">
                 @csrf
