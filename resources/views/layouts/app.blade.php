@@ -168,8 +168,8 @@
                         <li><a class="OSCSS-footer-item" href="{{route('privacypolicy')}}">プライバシーポリシー</a></li>
                     </ul>
                 </nav>
+                <div class="OSCSS-footer-rights">&copy; 2021 <a href="http://oscarchair.jp">OSCARCHAIR.JP</a> ALL RIGHTS RESERVED.</div>
             </div>
-            <div class="OSCSS-footer-rights">&copy; 2021 <a href="http://oscarchair.jp">OSCARCHAIR.JP</a> ALL RIGHTS RESERVED.</span>
         </footer>
     </div>
 </body>

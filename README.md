@@ -70,74 +70,22 @@ MAIL_FROM_ADDRESS="noreply@portfolionetwork.local"
 ```
 （※変更後は `docker-compose exec app php artisan config:clear` を実行して設定を反映させてください）
 
-## 主要な構成
-### 3. キャッシュ対策
-- ブラウザのキャッシュによってデザイン変更が反映されないことを防ぐため、CSS や JS の読み込み時には常に `?v={{ date('YmdHi') }}` などのバージョン情報を付与すること。
-
-## 本番環境 (ロリポップ) のサーバー構成
-
-### ディレクトリ構成とシンボリックリンク
-
-ロリポップのサーバーでは、以下のようなディレクトリ構成になっています。
-
-| ディレクトリ | 役割 |
-|---|---|
-| `~/laravel/portfolio_network/` | Laravelアプリケーションの実体（`git clone` 先） |
-| `~/web/portfolio-network.jp/` | ロリポップが管理する Webアクセス用フォルダ |
-
-**設定の概要**: `~/web/portfolio-network.jp/public` は `~/laravel/portfolio_network/public` へのシンボリックリンクになっています。
-
-```
-~/web/portfolio-network.jp/public -> /home/users/0/lomo.jp-oscarchair/laravel/portfolio_network/public
-```
-
-ロリポップのコントロールパネルで `portfolio-network.oscarchair.jp` のドキュメントルートが `~/web/portfolio-network.jp/public/` に設定され、それ経由で `~/laravel/portfolio_network/public/` のファイルが配信されます。
-
-> **重要**: ロリポップのセキュリティ仕様により、ドキュメントルート（`public/`）より上の階層を参照するシンボリックリンクは **403 Forbidden** となります。そのため `php artisan storage:link` は使用せず、物理的なディレクトリを配置しています。
-
-### 本番デプロイ手順
-
-1. ローカルで変更をプッシュ: `git push origin main`
-2. デプロイスクリプトを実行: `./deploy.ps1`
-   - リモートで `git pull`, `artisan migrate`, キャッシュクリアを自動実行
-
-### 画像ストレージの構成
-
-本番環境での画像ファイルの保存先と公開URLは**直接 public フォルダ**を使用します：
-
-| 種別 | 保存先 (=公開URL) |
-|---|---|
-| ユーザーアイコン | `public/userimages/` |
-| ポートフォリオアイコン | `public/portfolioimages/` |
-
-> **注意**: デプロイ環境では `public/userimages/` 等をシンボリックリンクから物理フォルダ（ディレクトリ）に置き換える必要があります。
-
-> **Tips (キャッシュ対策)**: ブラウザの強力なキャッシュ現象（同名ファイルをアップロードしても画像が切り替わらない問題）を防ぐため、画像のアップロードや更新時には必ず「古い画像ファイルを削除し、新しく**ランダムなファイル名を生成**して保存する」ロジックが実装されています（`MyProfileController` 等）。
-
----
-
-## Git 運用ルール
-- 開発環境（Docker/Linux）との整合性を保つため、リポジトリ内の改行コードは **LF** で統一する。
-- Windows 環境の Git クライアントを使用する場合でも、`.gitattributes` の設定に従い `LF` でチェックアウトされるように構成されていることを確認する。
-
-## サイトマップ生成
-- `resources/views/sitemap.blade.php` は XML 形式で出力される。
-- XML 宣言 (`<?xml ... ?>`) が PHP の開始タグと誤認してリンターエラーを引き起こすのを防ぐため、文字分割などのエスケープ処理を施して出力すること。
-
+## 各種ツール・ライブラリ
 - **バックエンド**: Laravel 11 / PHP 8.3 Apache (Docker)
 - **データベース**: MySQL 8.0 (Docker) / phpMyAdmin (`http://localhost:8081/`)
 - **フロントエンドビルド**: Laravel Mix (`webpack.mix.js` / `package.json`)
 - **特殊ライブラリ**: 
   - `laravel/socialite` (SNSログイン)
-  - `sunra/php-simple-html-dom-parser` (ポートフォリオサイトのタグ解析・認証など)
+  - `sunra/php-simple-html-dom-parser` (ポートフォリオサイトのタグ解析・認証用)
 
-## 技術的補足
+## 開発・運用ルール
 
-### 改行コードについて
-本プロジェクトは Docker (Linux) 環境での動作を前提としています。Windows 環境で開発する場合、改行コードの混在を防ぐために `.gitattributes` を設定しています。
-Git の `core.autocrlf` 設定に関わらず、リポジトリ内およびチェックアウト時は `LF` で統一するように構成されています。
+### 1. 改行コードとGit運用
+- 開発環境（Docker/Linux）との整合性を保つため、リポジトリ内の改行コードは **LF** で統一してください。
+- `.gitattributes` の設定により、Windows環境でも `LF` で扱われるように構成されています。
 
-### キャッシュバスティング (CSS Versioning)
-ブラウザキャッシュによるスタイルの反映遅延を防ぐため、主要な CSS リンクには `?v=YYYYMMDDHi` 形式のクエリパラメータを付与しています。
-新しいスタイルを適用した際は、`resources/views/layouts/app.blade.php` 等の該当箇所を確認してください。
+### 2. ブラウザキャッシュ対策
+- CSS や JS の読み込み時には `?v={{ date('YmdHi') }}` などのクエリパラメータを付与し、キャッシュによるデザイン反映遅延を防いでいます。
+- 画像アップロード時も、キャッシュ対策としてランダムなファイル名を生成して保存するロジックを採用しています。
+
 

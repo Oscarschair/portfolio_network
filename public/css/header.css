@@ -18,9 +18,9 @@
 
 #header-block {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,6 +99,30 @@
   opacity: 0.8;
 }
 
+#OSCSS-searcher {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+  z-index: 999;
+}
+
+#GlobalSearcher {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 768px) {
+  #GlobalSearcher {
+    padding: 0 15px;
+  }
+}
+
 /* Mobile Adjustments */
 @media screen and (max-width: 1100px) {
   .header-nav-bottom {
@@ -106,6 +130,12 @@
   }
 }
 
+
+@media screen and (max-width: 768px) {
+  #header-block {
+    padding: 0 15px;
+  }
+}
 
 @media screen and (max-width: 480px) {
   #header {
