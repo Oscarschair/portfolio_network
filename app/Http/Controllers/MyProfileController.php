@@ -36,13 +36,12 @@ class MyProfileController extends Controller
 	  $user->description = $request['description'];
 	  $user->save();
         }elseif($request['updateMethod'] == 'iconupload'){
-          if($user->icon_path == null){
-            $tmpString = Str::random(16).'.png';
-            $user->icon_path = $tmpString;
-            $user->save();
-          }else{
-            $tmpString = $user->icon_path;
+          if($user->icon_path != null){
+            @unlink(public_path('userimages/' . $user->icon_path));
           }
+          $tmpString = Str::random(16).'.png';
+          $user->icon_path = $tmpString;
+          $user->save();
           \Debugbar::addMessage($tmpString);
           $request->file('file')->move(public_path('userimages'), $tmpString);
         }elseif($request['updateMethod'] == 'deletePortfolio'){

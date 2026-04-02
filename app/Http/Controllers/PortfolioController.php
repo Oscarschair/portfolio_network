@@ -35,15 +35,14 @@ class PortfolioController extends Controller
         \Debugbar::addMessage($id);
 
         if ($request['updateMethod'] == 'iconupload') {
-            if ($portfolio->icon_path == null) {
-                $tmpString = Str::random(16) . '.png';
-                $portfolio->icon_path = $tmpString;
-                DB::table('portfolios')
-                    ->where('id', $id)
-                    ->update(['icon_path' => $tmpString]);
-            } else {
-                $tmpString = $portfolio->icon_path;
+            if ($portfolio->icon_path != null) {
+                @unlink(public_path('portfolioimages/' . $portfolio->icon_path));
             }
+            $tmpString = Str::random(16) . '.png';
+            $portfolio->icon_path = $tmpString;
+            DB::table('portfolios')
+                ->where('id', $id)
+                ->update(['icon_path' => $tmpString]);
             $request->file('file')->move(public_path('portfolioimages'), $tmpString);
         } elseif ($request['updateMethod'] == 'editTitle') {
             DB::table('portfolios')
