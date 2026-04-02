@@ -3,7 +3,7 @@
 @section('content')
     @inject('dateLib', 'App\Libs\DateLib')
     <link href="{{ asset('css/myprofile.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
-    <script src="{{ asset('js/filechecker.js') }}" defer></script>
+    <script src="{{ asset('js/filechecker.js') }}?v={{ time() }}" defer></script>
     <div class="container">
         <div class="justify-content-center">
             <h2>マイページ</h2>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <link href="{{ asset('css/register.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
-<script src="{{ asset('js/register.js') }}" defer></script>
+<script src="{{ asset('js/register.js') }}?v={{ time() }}" defer></script>
 
 <div class="container">
     <div class="row justify-content-center">

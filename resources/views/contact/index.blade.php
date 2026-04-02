@@ -3,7 +3,7 @@
 @section('content')
 @inject('dateLib', 'App\Libs\DateLib')
 <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
-<script src="{{ asset('js/contact.js') }}" defer></script>
+<script src="{{ asset('js/contact.js') }}?v={{ time() }}" defer></script>
 <div class="container">
 <div class="justify-content-center">
   <div class="OSCSS-content-box">

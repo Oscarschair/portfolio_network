@@ -26,8 +26,8 @@
     @isset($meta_description)<meta content="{{$meta_description}}" name='description'>
     @else<meta content="チャンスは準備された心に降り立つ。すべてのクリエイターのためのポートフォリオ共有プラットフォーム。" name='description'>
     @endisset
-@isset($meta_keywords)<meta content="{{$meta_keywords}}" name='keywords'>
-    @else<meta content="Portfolio,Network,ポートフォリオ,共有,プラットフォーム,Webデザイナー,イラストレーター,CGクリエイター" name='keywords'>
+    @isset($meta_keywords)<meta content="{{$meta_keywords}}" name='keywords'>
+    @else<meta content="Portfolio,Network,ポートフォリオ,共有,プラットフォーム,UIデザイナー,Webデザイナー,イラストレーター,CGクリエイター" name='keywords'>
     @endisset
 
     <meta property="og:url" content="{{ \Request::fullUrl() }}" />
@@ -51,10 +51,10 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/jquery.min.js') }}" ></script>
-    <script src="{{ asset('js/jquery.waypoints.min.js') }}" ></script>
-    <script src="{{ asset('js/common.js') }}" defer></script>
-    <script src="{{ asset('js/header.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.min.js') }}?v={{ time() }}" ></script>
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}?v={{ time() }}" ></script>
+    <script src="{{ asset('js/common.js') }}?v={{ time() }}" defer></script>
+    <script src="{{ asset('js/header.js') }}?v={{ time() }}" defer></script>
 
     <!-- Fonts: Inter & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,10 +62,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ date('YmdHi') }}" type="text/css">
-    <link href="{{ asset('css/header.css') }}?v={{ date('YmdHi') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}?v={{ time() }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}" type="text/css">
+    <link href="{{ asset('css/header.css') }}?v={{ time() }}" rel="stylesheet">
 
 
 

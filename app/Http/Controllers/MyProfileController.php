@@ -18,7 +18,7 @@ class MyProfileController extends Controller
 
     public function __construct()
     {
-	$this->portfolioTypes = new Collection(['Webデザイナー', 'CGクリエーター', 'イラストレーター', 'エンジニア', 'Webディレクター', 'コピーライター']);
+	$this->portfolioTypes = new Collection(['UIデザイナー', 'Webデザイナー', 'CGクリエーター', 'イラストレーター', 'エンジニア', 'Webディレクター', 'コピーライター']);
     }
 
     public function update(Request $request)

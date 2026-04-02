@@ -16,7 +16,7 @@ class SearchController extends Controller
      */
     public function __construct()
     {
-	$this->portfolioTypes = new Collection(['Webデザイナー', 'CGクリエーター', 'イラストレーター', 'エンジニア', 'Webディレクター', 'コピーライター']);
+	$this->portfolioTypes = new Collection(['UIデザイナー', 'Webデザイナー', 'CGクリエーター', 'イラストレーター', 'エンジニア', 'Webディレクター', 'コピーライター']);
 	$this->portfolioColors = new Collection(['#06286d', '#066d63', '#6d1906', '#6d066a', '#086d06', '#c3710b']);
     }
     

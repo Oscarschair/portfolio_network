@@ -8,15 +8,16 @@
 <div class="OSCSS-main-container">
   <section class="OSCSS-section-hero">
     <div class="OSCSS-hero-overlay"></div>
+    <div class="OSCSS-hero-floating-elements"></div>
     <div class="OSCSS-section-hero-content animate-box-up">
-      <h1 class="OSCSS-hero-title">チャンスは準備された心に降り立つ</h1>
-      <p class="OSCSS-hero-subtitle">Portfolio Network</p>
-      <div class="OSCSS-hero-badge">ポートフォリオ共有プラットフォーム</div>
+      <h1 class="OSCSS-hero-title">あなたの才能を埋もれさせない。<br>ポートフォリオを通じてあなたを売り出そう。</h1>
+      <p class="OSCSS-hero-subtitle">SNSのタイムラインで流されてしまうには、あなたの作品は惜しすぎる。<br>自分だけの拠点（HP）を持ち、プロとしての信頼を世界に示しましょう。</p>
+      <div class="OSCSS-hero-badge">Portfolio Network</div>
 
       <div class="OSCSS-description-card hero-overlay-card">
-        <h2>Portfolio Networkとは</h2>
+        <h2>「売り出す」をカタチにする</h2>
         <div class="OSCSS-section-description-content">
-          <p><span>Portfolio Network</span>（ピーネット）は、みんなの<span>ポートフォリオサイト</span>をよりたくさんの人に見られるための<span>共有プラットフォーム</span>です。</p>
+          <p><span>Portfolio Network</span>は、クリエイターが単に作品を置くだけでなく、<span>「見つかり、伝わり、繋がる」</span>ための戦略的な共有プラットフォームです。</p>
         </div>
       </div>
     </div>
@@ -25,7 +26,10 @@
   <section class="OSCSS-section-latest">
     <div class="OSCSS-section-inner">
       <div class="OSCSS-section-header">
-        <h2 class="OSCSS-section-title animate-box-up">新着ポートフォリオ</h2>
+        <h2 class="OSCSS-section-title animate-box-up">
+          <span class="OSCSS-live-badge">LIVE</span>
+          新着の才能
+        </h2>
         <div class="OSCSS-section-line"></div>
       </div>
       <div class="OSCSS-section-latest-list-wrapper">
@@ -55,36 +59,46 @@
     <div class="OSCSS-section-inner">
 
       <div class="OSCSS-section-header margin-top-lg">
-        <h2 class="OSCSS-section-title animate-box-up">ポートフォリオ募集中</h2>
+        <h2 class="OSCSS-section-title animate-box-up">「売り出す」を具体化する3つの柱</h2>
         <div class="OSCSS-section-line"></div>
       </div>
 
       <div class="OSCSS-columns-wrapper">
         <div class="OSCSS-columns animate-box-up">
-          @php
-            $categories = [
-              ['name' => 'Webデザイナー', 'img' => 'Webデザイナー.png', 'desc' => '作品はもちろん、センスも見えてくる重要ツール。ポートフォリオの役目を最大化しましょう。'],
-              ['name' => 'CGクリエーター', 'img' => 'CGデザイナー.png', 'desc' => 'NFTやデジタルアートの最前線へ。注目度アップとキャリアの成長を狙いたい方に。'],
-              ['name' => 'イラストレーター', 'img' => 'イラストレーター.png', 'desc' => '表紙からWEB素材まで、多彩な作品をひとまとめに。次の仕事への架け橋に。'],
-              ['name' => 'エンジニア', 'img' => 'ゲームクリエイター.png', 'desc' => '言葉ではなくコードで、成果物で語る。フルスタックスキルを可視化。'],
-              ['name' => 'Webディレクター', 'img' => 'ディレクター.png', 'desc' => 'プロジェクトの軌跡をポートフォリオに。採用の決め手となる実績をアピール。'],
-              ['name' => 'コピーライター', 'img' => 'コピーライター.png', 'desc' => '言葉の力を作品として集約。アマチュアと差別化し、信頼を獲得する。']
-            ];
-          @endphp
-
-          @foreach($categories as $cat)
-          <div class="OSCSS-columns-col">
-            <div class="OSCSS-columns-col-title"><h3>{{ $cat['name'] }}</h3></div>
+          <div class="OSCSS-columns-col pillar-card">
+            <div class="OSCSS-columns-col-title"><h3>「見つかる」プラットフォーム</h3></div>
             <div class="OSCSS-columns-col-img">
-              <img src="/img/{{ $cat['img'] }}" width="80" height="80" alt="{{ $cat['name'] }}">
+              <i class="OSCSS-pillar-icon search-glow"></i>
             </div>
-            <div class="OSCSS-columns-col-desc"><p>{{ $cat['desc'] }}</p></div>
-            <a class="OSCSS-columns-btn" href="{{route('register')}}">今すぐ登録</a>
+            <div class="OSCSS-columns-col-desc">
+              <p>単なるリンク集ではなく、クライアントや採用担当者が「才能を探す場所」として機能します。</p>
+            </div>
           </div>
-          @endforeach
+
+          <div class="OSCSS-columns-col pillar-card highlighted">
+            <div class="OSCSS-columns-col-title"><h3>「伝わる」ポートフォリオ</h3></div>
+            <div class="OSCSS-columns-col-img">
+              <i class="OSCSS-pillar-icon presentation-glow"></i>
+            </div>
+            <div class="OSCSS-columns-col-desc">
+              <p>SNSでは表現しきれない、制作の背景やあなたのスキルセットを体系的に見せることができます。</p>
+            </div>
+          </div>
+
+          <div class="OSCSS-columns-col pillar-card">
+            <div class="OSCSS-columns-col-title"><h3>「繋がる」チャンス</h3></div>
+            <div class="OSCSS-columns-col-img">
+              <i class="OSCSS-pillar-icon connection-glow"></i>
+            </div>
+            <div class="OSCSS-columns-col-desc">
+              <p>登録したHPがあなたの24時間365日の営業マンとなり、新しい仕事の窓口になります。</p>
+            </div>
+          </div>
         </div>
-        <button id="OSCSS-prev" class="OSCSS-nav-btn">&#10094;</button>
-        <button id="OSCSS-next" class="OSCSS-nav-btn">&#10095;</button>
+        
+        <div class="OSCSS-cta-wrapper animate-box-up">
+          <a class="OSCSS-columns-btn cta-large" href="{{route('register')}}">今すぐあなたの才能を登録する</a>
+        </div>
       </div>
     </div>
   </section>
