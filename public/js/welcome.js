@@ -89,5 +89,59 @@
         
         $(window).on('scroll', reveal);
         reveal(); // Initial check
+
+        // Hero Background Flowing Icons
+        const initHeroBackground = () => {
+            const container = $('.OSCSS-hero-floating-elements');
+            if (!container.length) return;
+
+            const iconCount = 12;
+            for (let i = 0; i < iconCount; i++) {
+                createFlowingIcon(container);
+            }
+        };
+
+        const createFlowingIcon = (container) => {
+            const icon = $('<div class="OSCSS-flowing-icon"><div></div></div>');
+            const size = Math.random() * 30 + 15;
+            const left = Math.random() * 100;
+            const delay = Math.random() * 20;
+            const duration = Math.random() * 20 + 20;
+            
+            // SNS-like colors (muted)
+            const colors = [
+                'rgba(255, 255, 255, 0.15)', // White
+                'rgba(59, 130, 246, 0.15)', // Blue (FB/X)
+                'rgba(236, 72, 153, 0.15)', // Pink (Instagram)
+                'rgba(16, 185, 129, 0.15)', // Green
+            ];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+
+            icon.css({
+                width: `${size}px`,
+                height: `${size}px`,
+                left: `${left}%`,
+                backgroundColor: color,
+                animationDelay: `${delay}s`,
+                animationDuration: `${duration}s`
+            });
+
+            container.append(icon);
+
+            // Re-create after animation ends to vary properties
+            icon.on('animationiteration', function() {
+                const newLeft = Math.random() * 100;
+                const newSize = Math.random() * 40 + 20;
+                const newColor = colors[Math.floor(Math.random() * colors.length)];
+                $(this).css({
+                    left: `${newLeft}%`,
+                    width: `${newSize}px`,
+                    height: `${newSize}px`,
+                    backgroundColor: newColor
+                });
+            });
+        };
+
+        initHeroBackground();
     });
 }());
