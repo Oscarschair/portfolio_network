@@ -47,15 +47,12 @@ docker-compose exec app php artisan key:generate
 docker-compose exec app php artisan migrate
 ```
 
-### 5. ストレージリンクの作成
-ユーザー画像のアップロード用にディレクトリのリンクを作成します。
+### 5. 画像保存用ディレクトリについて
+ロリポップ等の一部レンタルサーバーのセキュリティ仕様により、`storage:link`によるシンボリックリンクでは画像が表示できない（403エラー）ケースがあります。
+そのため、本プロジェクトでは画像を `storage/app/` ではなく 直接 `public/userimages/` や `public/portfolioimages/` フォルダに保存する仕様を採用しています。
 
 **Windows環境での注意：**
-もし `public/userimages` などのシンボリックリンクがテキストファイルとしてチェックアウトされてしまっている場合は、手動で削除してから実行してください。
-```bash
-docker-compose exec app php artisan storage:link
-```
-※WindowsのDocker環境ではジャンクションをホスト側から実行しなければいけないケースもあるため、画像がアップロードできても表示されない場合はホスト（Windows側）から `php artisan storage:link` の実行をお試しください。
+もし `public/userimages` や `public/portfolioimages` がシンボリックリンクとしてチェックアウトされてしまっている場合は、手動でフォルダとして作り直してください。
 
 ### 6. フロントエンドのビルド
 ```bash
@@ -99,27 +96,24 @@ MAIL_FROM_ADDRESS="noreply@portfolionetwork.local"
 
 ロリポップのコントロールパネルで `portfolio-network.oscarchair.jp` のドキュメントルートが `~/web/portfolio-network.jp/public/` に設定され、それ経由で `~/laravel/portfolio_network/public/` のファイルが配信されます。
 
-> **重要**: `php artisan storage:link` で作成されるシンボリックリンクは `~/laravel/portfolio_network/public/` 配下に作成されます。`~/web/portfolio-network.jp/public/` 配下のリンクは **使用されません**。　public -> /home/users/0/lomo.jp-oscarchair/laravel/portfolio_network/public
+> **重要**: ロリポップのセキュリティ仕様により、ドキュメントルート（`public/`）より上の階層を参照するシンボリックリンクは **403 Forbidden** となります。そのため `php artisan storage:link` は使用せず、物理的なディレクトリを配置しています。
 
 ### 本番デプロイ手順
 
 1. ローカルで変更をプッシュ: `git push origin main`
 2. デプロイスクリプトを実行: `./deploy.ps1`
-   - リモートで `git pull`, `artisan migrate`, `artisan storage:link`, キャッシュクリアを自動実行
+   - リモートで `git pull`, `artisan migrate`, キャッシュクリアを自動実行
 
 ### 画像ストレージの構成
 
-本番環境での画像ファイルの保存先と公開URL：
+本番環境での画像ファイルの保存先と公開URLは**直接 public フォルダ**を使用します：
 
-| 種別 | 保存先 | 公開URL用シンボリックリンク |
-|---|---|---|
-| ユーザーアイコン | `storage/app/usricon/` | `public/userimages/` |
-| ポートフォリオアイコン | `storage/app/portfolioicon/` | `public/portfolioimages/` |
+| 種別 | 保存先 (=公開URL) |
+|---|---|
+| ユーザーアイコン | `public/userimages/` |
+| ポートフォリオアイコン | `public/portfolioimages/` |
 
-これらのシンボリックリンクは `php artisan storage:link` が自動作成します（`config/filesystems.php` の `links` に定義済み）。
-
-> **注意**: `artisan storage:link` は既に symlink が存在する場合、リンク先が間違っていてもスキップします。
-> `deploy.ps1` では `rm -f` で古いリンクを削除してから再作成するよう対処しています。
+> **注意**: デプロイ環境では `public/userimages/` 等をシンボリックリンクから物理フォルダ（ディレクトリ）に置き換える必要があります。
 
 ---
 

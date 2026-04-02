@@ -44,7 +44,7 @@ class MyProfileController extends Controller
             $tmpString = $user->icon_path;
           }
           \Debugbar::addMessage($tmpString);
-          $request->file('file')->storeAs('usricon',$tmpString);
+          $request->file('file')->move(public_path('userimages'), $tmpString);
         }elseif($request['updateMethod'] == 'deletePortfolio'){
           DB::table('portfolios')->where('id', '=', $request['portfolioID'])->delete();
 	  $portfolios = DB::table('portfolios')
