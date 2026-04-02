@@ -24,8 +24,14 @@ $connectionString = $SSH_USER + "@" + $SSH_HOST
 Write-Host ("Connecting to: " + $connectionString + " -p " + $SSH_PORT) -ForegroundColor Gray
 
 # Simplified commands: CD to directory and Git Pull
-# We keep artisan clear to ensure the web UI reflects changes immediately.
-$commandsToRun = "cd $DEPLOY_DIR && git pull origin main && php8.4 artisan migrate --force && php8.4 artisan storage:link && php8.4 artisan config:clear && php8.4 artisan view:clear"
+# Note: storage:link skips existing symlinks, so we force-delete and recreate image symlinks
+# to handle cases where old/wrong symlinks exist (e.g. userimages -> wrong path).
+$STORAGE_BASE = "/home/users/0/lomo.jp-oscarchair/laravel/portfolio_network/storage/app"
+$PUBLIC_BASE  = "/home/users/0/lomo.jp-oscarchair/laravel/portfolio_network/public"
+$commandsToRun = "cd $DEPLOY_DIR && git pull origin main && php8.4 artisan migrate --force && " +
+    "rm -f $PUBLIC_BASE/userimages $PUBLIC_BASE/portfolioimages && " +
+    "php8.4 artisan storage:link && " +
+    "php8.4 artisan config:clear && php8.4 artisan view:clear"
 
 # Run Windows SSH command
 ssh -p $SSH_PORT $connectionString $commandsToRun

@@ -77,6 +77,52 @@ MAIL_FROM_ADDRESS="noreply@portfolionetwork.local"
 ### 3. キャッシュ対策
 - ブラウザのキャッシュによってデザイン変更が反映されないことを防ぐため、CSS や JS の読み込み時には常に `?v={{ date('YmdHi') }}` などのバージョン情報を付与すること。
 
+## 本番環境 (ロリポップ) のサーバー構成
+
+### ディレクトリ構成とシンボリックリンク
+
+ロリポップのサーバーでは、以下のようなディレクトリ構成になっています。
+
+| ディレクトリ | 役割 |
+|---|---|
+| `~/laravel/portfolio_network/` | Laravelアプリケーションの実体（`git clone` 先） |
+| `~/web/portfolio-network.jp/` | ロリポップが管理する Webアクセス用フォルダ |
+
+| `~/laravel/portfolio_network/` | Laravelアプリケーションの実体（`git clone` 先） |
+| `~/web/portfolio-network.jp/` | ロリポップが管理する Webアクセス用フォルダ |
+
+**設定の概要**: `~/web/portfolio-network.jp/public` は `~/laravel/portfolio_network/public` へのシンボリックリンクになっています。
+
+```
+~/web/portfolio-network.jp/public -> /home/users/0/lomo.jp-oscarchair/laravel/portfolio_network/public
+```
+
+ロリポップのコントロールパネルで `portfolio-network.oscarchair.jp` のドキュメントルートが `~/web/portfolio-network.jp/public/` に設定され、それ経由で `~/laravel/portfolio_network/public/` のファイルが配信されます。
+
+> **重要**: `php artisan storage:link` で作成されるシンボリックリンクは `~/laravel/portfolio_network/public/` 配下に作成されます。`~/web/portfolio-network.jp/public/` 配下のリンクは **使用されません**。　public -> /home/users/0/lomo.jp-oscarchair/laravel/portfolio_network/public
+
+### 本番デプロイ手順
+
+1. ローカルで変更をプッシュ: `git push origin main`
+2. デプロイスクリプトを実行: `./deploy.ps1`
+   - リモートで `git pull`, `artisan migrate`, `artisan storage:link`, キャッシュクリアを自動実行
+
+### 画像ストレージの構成
+
+本番環境での画像ファイルの保存先と公開URL：
+
+| 種別 | 保存先 | 公開URL用シンボリックリンク |
+|---|---|---|
+| ユーザーアイコン | `storage/app/usricon/` | `public/userimages/` |
+| ポートフォリオアイコン | `storage/app/portfolioicon/` | `public/portfolioimages/` |
+
+これらのシンボリックリンクは `php artisan storage:link` が自動作成します（`config/filesystems.php` の `links` に定義済み）。
+
+> **注意**: `artisan storage:link` は既に symlink が存在する場合、リンク先が間違っていてもスキップします。
+> `deploy.ps1` では `rm -f` で古いリンクを削除してから再作成するよう対処しています。
+
+---
+
 ## Git 運用ルール
 - 開発環境（Docker/Linux）との整合性を保つため、リポジトリ内の改行コードは **LF** で統一する。
 - Windows 環境の Git クライアントを使用する場合でも、`.gitattributes` の設定に従い `LF` でチェックアウトされるように構成されていることを確認する。

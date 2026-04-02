@@ -6,8 +6,9 @@
     Options +FollowSymLinks
     RewriteEngine On
 
-    # Allow access to portfolioimages
-    RewriteCond %{REQUEST_URI} ^/portfolioimages/
+    # Allow direct access to image directories (symlinks to storage)
+    RewriteCond %{REQUEST_URI} ^/portfolioimages/ [OR]
+    RewriteCond %{REQUEST_URI} ^/userimages/
     RewriteRule ^ - [L]
 
     # Handle Authorization Header
