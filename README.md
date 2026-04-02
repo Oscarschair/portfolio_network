@@ -85,9 +85,6 @@ MAIL_FROM_ADDRESS="noreply@portfolionetwork.local"
 | `~/laravel/portfolio_network/` | Laravelアプリケーションの実体（`git clone` 先） |
 | `~/web/portfolio-network.jp/` | ロリポップが管理する Webアクセス用フォルダ |
 
-| `~/laravel/portfolio_network/` | Laravelアプリケーションの実体（`git clone` 先） |
-| `~/web/portfolio-network.jp/` | ロリポップが管理する Webアクセス用フォルダ |
-
 **設定の概要**: `~/web/portfolio-network.jp/public` は `~/laravel/portfolio_network/public` へのシンボリックリンクになっています。
 
 ```
