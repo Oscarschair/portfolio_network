@@ -25,7 +25,7 @@ Write-Host ("Connecting to: " + $connectionString + " -p " + $SSH_PORT) -Foregro
 
 # Simplified commands: CD to directory and Git Pull
 # We keep artisan clear to ensure the web UI reflects changes immediately.
-$commandsToRun = "cd $DEPLOY_DIR && git pull origin main && php8.4 artisan migrate --force && php8.4 artisan config:clear && php8.4 artisan view:clear"
+$commandsToRun = "cd $DEPLOY_DIR && git pull origin main && php8.4 artisan migrate --force && php8.4 artisan storage:link && php8.4 artisan config:clear && php8.4 artisan view:clear"
 
 # Run Windows SSH command
 ssh -p $SSH_PORT $connectionString $commandsToRun
