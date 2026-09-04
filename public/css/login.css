@@ -40,6 +40,43 @@
   color: var(--text-muted, #64748B);
 }
 
+/* Login Method & Last Used Badge */
+.login-method-group {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.last-used-badge-wrapper {
+  display: none;
+  margin-bottom: 8px;
+}
+
+.last-used-badge-wrapper.is-visible {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.last-used-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  color: var(--color-primary, #4F46E5);
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  animation: fadeIn 0.3s ease;
+}
+
+.last-used-pill.email-pill {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #059669;
+}
+
 /* Social Buttons */
 .btn-google {
   display: flex;
@@ -58,6 +95,13 @@
   cursor: pointer;
   transition: all var(--transition-fast, 0.2s);
   text-decoration: none;
+  position: relative;
+}
+
+.btn-google.is-last-used {
+  border-color: var(--color-primary, #4F46E5);
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(238, 242, 255, 0.5) 100%);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12), 0 4px 12px rgba(79, 70, 229, 0.08);
 }
 
 .btn-google:hover {
@@ -66,6 +110,11 @@
   color: #0F172A;
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-google.is-last-used:hover {
+  border-color: var(--color-primary, #4F46E5);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2), 0 6px 16px rgba(79, 70, 229, 0.15);
 }
 
 .btn-google img {

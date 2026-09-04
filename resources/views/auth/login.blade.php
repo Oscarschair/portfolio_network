@@ -3,6 +3,10 @@
 @section('content')
 <link href="{{ asset('css/login.css') }}?v={{ time() }}" rel="stylesheet">
 
+@php
+    $lastLoginMethod = request()->cookie('last_login_method');
+@endphp
+
 <div class="auth-wrapper">
     <div class="auth-card">
         <div class="auth-card-header">
@@ -10,18 +14,36 @@
             <p class="auth-card-subtitle">Portfolio Network へようこそ</p>
         </div>
 
-        <!-- Google Social Login -->
-        <a href="/login/google" class="btn-google" role="button">
-            <img src="{{ asset('img/google_logo.png') }}" width="20" height="20" alt="Google"/>
-            <span>Google でログイン</span>
-        </a>
+        <!-- Google Social Login Container -->
+        <div class="login-method-group" id="google-login-group">
+            <div class="last-used-badge-wrapper {{ $lastLoginMethod === 'google' ? 'is-visible' : '' }}" id="badge-google">
+                <span class="last-used-pill">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    前回使用したログイン方法
+                </span>
+            </div>
+            
+            <a href="/login/google" class="btn-google {{ $lastLoginMethod === 'google' ? 'is-last-used' : '' }}" id="btn-google-login" role="button" onclick="localStorage.setItem('last_login_method', 'google');">
+                <img src="{{ asset('img/google_logo.png') }}" width="20" height="20" alt="Google"/>
+                <span>Google でログイン</span>
+            </a>
+        </div>
 
         <div class="auth-divider">
             <span>またはメールアドレスでログイン</span>
         </div>
 
-        <form method="POST" action="{{ route('login') }}">
+        <!-- Email Password Login Form -->
+        <form method="POST" action="{{ route('login') }}" id="email-login-form" onsubmit="localStorage.setItem('last_login_method', 'email');">
             @csrf
+
+            <!-- Email Last Used Badge (if applicable) -->
+            <div class="last-used-badge-wrapper {{ $lastLoginMethod === 'email' ? 'is-visible' : '' }}" id="badge-email" style="margin-bottom: 8px;">
+                <span class="last-used-pill email-pill">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    前回使用したログイン方法
+                </span>
+            </div>
 
             <!-- Email Field -->
             <div class="auth-form-group">
@@ -62,7 +84,7 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn-auth-submit">
+            <button type="submit" class="btn-auth-submit {{ $lastLoginMethod === 'email' ? 'is-last-used' : '' }}">
                 {{ __('auth.Login') }}
             </button>
 
@@ -74,4 +96,28 @@
         </form>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Check localStorage as well for instant client-side update
+    var storedMethod = localStorage.getItem('last_login_method');
+    if (storedMethod === 'google') {
+        var badgeG = document.getElementById('badge-google');
+        var btnG = document.getElementById('btn-google-login');
+        if (badgeG) badgeG.classList.add('is-visible');
+        if (btnG) btnG.classList.add('is-last-used');
+        
+        var badgeE = document.getElementById('badge-email');
+        if (badgeE) badgeE.classList.remove('is-visible');
+    } else if (storedMethod === 'email') {
+        var badgeE = document.getElementById('badge-email');
+        if (badgeE) badgeE.classList.add('is-visible');
+        
+        var badgeG = document.getElementById('badge-google');
+        var btnG = document.getElementById('btn-google-login');
+        if (badgeG) badgeG.classList.remove('is-visible');
+        if (btnG) btnG.classList.remove('is-last-used');
+    }
+});
+</script>
 @endsection
