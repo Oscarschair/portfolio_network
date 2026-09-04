@@ -196,7 +196,8 @@
 .OSCSS-section-categories {
   background: #FFFFFF;
   border-bottom: 1px solid #E2E8F0;
-  padding: 18px 0;
+  padding: 16px 0;
+  width: 100%;
 }
 
 .category-pills-wrapper {
@@ -211,17 +212,18 @@
   font-weight: 700;
   color: #64748B;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .category-pills {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .category-pill-btn {
-  padding: 6px 16px;
+  padding: 6px 14px;
   font-size: 13px;
   font-weight: 600;
   color: #475569;
@@ -230,6 +232,7 @@
   border-radius: 9999px;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .category-pill-btn:hover {
@@ -237,6 +240,50 @@
   color: #4F46E5;
   border-color: #C7D2FE;
   transform: translateY(-1px);
+}
+
+@media screen and (max-width: 768px) {
+  .OSCSS-section-categories {
+    padding: 12px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .category-pills-wrapper {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .category-pills {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+}
+
+.OSCSS-flowing-icon {
+  position: absolute;
+  bottom: -60px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: floatUp linear infinite;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-800px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* Section Header Standard */
