@@ -1,62 +1,110 @@
-p{
-  font-size: 15px;
-}
-@media screen and (max-width: 480px) {
-  h3{
-    width: 100%;
-  }
-  .OSCSS-content-box-inner{
-    padding: 20px;
-  }
+/* ==========================================================================
+   Portfolio Network - Guide Page Styles
+   ========================================================================== */
+
+.guide-card {
+  background: var(--bg-card, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 16px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: clamp(24px, 5vw, 48px);
+  box-shadow: var(--shadow-lg, 0 10px 30px rgba(0, 0, 0, 0.3));
+  margin: 40px auto;
+  max-width: 860px;
 }
 
-label {
-    display: block;
-    color: #fff;
-    font-weight: 700;
-    font-size: 18px;
-    background: #223488;
-    padding: 10px;
-    margin: 0;
-    border: 1px solid #fff;
+.guide-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-primary, #f8fafc);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
 }
 
-input[type="checkbox"].switcher{
-    display: none;
+.guide-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.OSCSS-content-list .listcontents {
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -ms-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
-.OSCSS-guide-img{
-    width: 100%;
-}
-.OSCSS-guide-img-25{
-    width: 25%;
-}
-.OSCSS-guide-img-50{
-    width: 50%;
-}
-.OSCSS-guide-img, .OSCSS-guide-img-25, .OSCSS-guide-img-50{
-    border: black solid 1px;
-    padding: 5px;
-    border-radius: 5px;
-
-}
-input[type="checkbox"].switcher + .listcontents{
-    height: 0;
-    overflow: hidden;
+.guide-accordion-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  transition: all var(--transition-normal, 0.3s ease);
 }
 
-input[type="checkbox"].switcher:checked + .listcontents{
-    height: auto;
+.guide-accordion-item:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.guide-accordion-item label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary, #f8fafc);
+  cursor: pointer;
+  margin: 0;
+  user-select: none;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.guide-accordion-item label::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--primary, #6366f1);
+  transition: transform var(--transition-normal, 0.3s ease);
+}
+
+.switcher {
+  display: none;
+}
+
+.switcher:checked + .guide-content {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.switcher:checked ~ label::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+.guide-content {
+  display: none;
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary, #cbd5e1);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.guide-img {
+  max-width: 100%;
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 16px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.guide-img-half {
+  max-width: 500px;
+  width: 100%;
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 16px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }

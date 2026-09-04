@@ -1,140 +1,253 @@
-.OSCSS-portfolio-header{
-  display: flex;
-  margin-bottom: 30px;
-}
-.OSCSS-portfolio-icon-area{
-  position: relative;
-  width: 40%;
-  border-radius: 5%;
-  margin: 10px;
-  padding: 5px;
-}
-.OSCSS-portfolio-icon{
-  display: block;
-  position: relative;
-  height: 100%;
-  max-width: 240px;
-  border: #bfbfbf 4px solid;
-  border-radius: 5%;
-  margin: auto;
-}
-.OSCSS-portfolio-icon-inner{
-  display: block;
-  position: relative;
-  border: #ffffff 8px solid;
-  border-radius: 5%;
-  overflow: hidden;
-}
-.OSCSS-portfolio-icon-inner:before {
-  content: "";
-  display: block;
-  padding-top: 75%;
-}
-.OSCSS-portfolio-icon img {
-  position: absolute;
-  width: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
-.OSCSS-portfolio-view, .OSCSS-portfolio-click{
-  width: 20%;
-  color: #646464;
-  font-size: 25px;
-  text-align: center;
-  margin: auto 0;
-}
-.OSCSS-portfolio-usericon{
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border: #bfbfbf 2px solid;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.OSCSS-portfolio-usericon a{
-  display: flex;
-}
-.OSCSS-portfolio-usericon a span{
-  display: flex;
-  white-space: nowrap;
-  margin: auto 10px;
-}
-.OSCSS-portfolio-usericon a img{
-  position: absolute;
-  width: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
-.OSCSS-portfolio-username{
-  padding-left: 10px;
-  line-height: 50px;
-}
-@media screen and (max-width: 460px) {
-  .OSCSS-portfolio-header{
-    flex-wrap: wrap;
-  }
-  .OSCSS-portfolio-icon-area{
-    width: 100%;
-  }
-  .OSCSS-portfolio-view, .OSCSS-portfolio-click{
-    width: 20%;
-    margin: auto;
-  }
+/* ==========================================================================
+   Portfolio Network - Portfolio Detail View Styles
+   ========================================================================== */
+
+.portfolio-detail-card {
+  background: var(--bg-card, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 16px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: clamp(20px, 4vw, 40px);
+  box-shadow: var(--shadow-lg, 0 10px 30px rgba(0, 0, 0, 0.3));
+  margin: 30px auto;
+  max-width: 900px;
 }
 
-.OSCSS-content-box-inner dl{
+/* Header Area */
+.portfolio-hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 36px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+}
+
+.portfolio-preview-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.portfolio-preview-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal, 0.3s ease);
+}
+
+.portfolio-preview-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.portfolio-stats-group {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.portfolio-badge-row {
+  display: flex;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  align-items: center;
 }
-.OSCSS-content-box-inner dt{
-  width: 30%;
-  padding-left: 15px;
-  font-weight: bold;
-  position: relative;
+
+.portfolio-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #a5b4fc;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
-.OSCSS-content-box-inner dd{
+
+.portfolio-main-title {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-primary, #f8fafc);
+  line-height: 1.3;
+  margin: 0;
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+}
+
+.metrics-row {
   display: flex;
-  width: 70%;
-  margin: auto 0;
-  font-size: 13px;
+  gap: 16px;
 }
-.OSCSS-content-box-inner dd input,
-.OSCSS-content-box-inner dd textarea,
-.OSCSS-content-box-inner dd select{
-  width: 100%;
-}
-.OSCSS-content-box-inner dd .note{
-  font-size: 14px;
-  color: #bfbfbf;
-}
-@media screen and (max-width: 460px) {
-  .OSCSS-content-box-inner dt{
-    width: 100%;
-    padding: 0;
-  }
-  .OSCSS-content-box-inner dd{
-    width: 100%;
-  }
-}
-.OSCSS-social-share {
-  position: relative;
-  width: 100%;
-}
-.OSCSS-social-title {
+
+.metric-pill {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md, 12px);
+  padding: 12px 16px;
   text-align: center;
-  color: #cccccc;
-  letter-spacing: 5px;
 }
-.OSCSS-social-button{
-  position: relative;
+
+.metric-pill .metric-val {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary, #f8fafc);
+  display: block;
+  line-height: 1.1;
+  background: var(--primary-gradient, linear-gradient(135deg, #6366f1, #a855f7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-pill .metric-lbl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted, #94a3b8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Metadata Definition List */
+.portfolio-details-list {
   display: flex;
-  width: 80%;
-  max-width: 500px;
-  margin: 20px auto;
+  flex-direction: column;
+  gap: 24px;
 }
-.OSCSS-social-button div{
-  margin: auto;
+
+.portfolio-detail-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.portfolio-detail-label {
+  font-weight: 600;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.95rem;
+  padding-top: 4px;
+}
+
+.portfolio-detail-value {
+  color: var(--text-primary, #f8fafc);
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* User Box */
+.portfolio-author-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all var(--transition-normal, 0.3s ease);
+}
+
+.portfolio-author-box:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+}
+
+.author-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(99, 102, 241, 0.5);
+}
+
+.author-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author-name {
+  font-weight: 600;
+  color: var(--text-primary, #f8fafc);
+  font-size: 0.95rem;
+}
+
+/* Visit Website CTA */
+.visit-site-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-md, 12px);
+  background: var(--primary-gradient, linear-gradient(135deg, #6366f1, #8b5cf6));
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+  transition: all var(--transition-normal, 0.3s ease);
+  text-decoration: none;
+}
+
+.visit-site-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.5);
+  color: #ffffff;
+}
+
+/* Social Share Bar */
+.portfolio-share-bar {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.share-bar-title {
+  font-weight: 600;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.9rem;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .portfolio-hero-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .portfolio-detail-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .portfolio-detail-label {
+    font-size: 0.85rem;
+    color: var(--text-muted, #94a3b8);
+  }
 }

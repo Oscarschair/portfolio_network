@@ -1,3 +1,7 @@
+<IfModule LiteSpeed>
+    CacheLookup off
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
@@ -5,7 +9,7 @@
     Options +SymLinksIfOwnerMatch
     RewriteEngine On
 
-    # Allow direct access to image directories (symlinks to storage)
+    # Allow direct access to image directories
     RewriteCond %{REQUEST_URI} ^/portfolioimages/ [OR]
     RewriteCond %{REQUEST_URI} ^/userimages/
     RewriteRule ^ - [L]

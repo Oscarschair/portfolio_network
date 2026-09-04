@@ -1,3 +1,82 @@
-.form-group{
-  margin-bottom: 10px;
+/* ==========================================================================
+   Portfolio Network - Contact Page Styles
+   ========================================================================== */
+
+.contact-card {
+  background: var(--bg-card, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 16px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: clamp(24px, 5vw, 48px);
+  box-shadow: var(--shadow-lg, 0 10px 30px rgba(0, 0, 0, 0.3));
+  margin: 40px auto;
+  max-width: 680px;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.contact-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-primary, #f8fafc);
+  margin-bottom: 12px;
+}
+
+.contact-subtitle {
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary, #f8fafc);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.form-group .form-control {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md, 12px);
+  padding: 12px 16px;
+  color: var(--text-primary, #f8fafc);
+  font-size: 0.95rem;
+  transition: all var(--transition-normal, 0.3s ease);
+}
+
+.form-group .form-control:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--primary, #6366f1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  outline: none;
+}
+
+.form-group textarea.form-control {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.submit-btn-block {
+  margin-top: 12px;
+}
+
+.submit-btn-block .btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
 }

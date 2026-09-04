@@ -1,6 +1,11 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Disable LiteSpeed Cache for dynamic Laravel responses
+    <IfModule LiteSpeed>
+        CacheLookup off
+    </IfModule>
+
     # Redirect HTTP to HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]

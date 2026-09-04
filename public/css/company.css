@@ -1,18 +1,28 @@
-h3{
-  font-size: 22px;
-  margin: 22px 0;
-  width: 50%;
-  border-left: 6px #223488 solid;
-  padding-left: 20px;
+/* ==========================================================================
+   Portfolio Network - Company / About Styles
+   ========================================================================== */
+
+@import url('terms.css');
+
+.company-table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
 }
-p{
-  font-size: 15px;
+
+.company-table th,
+.company-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
 }
-@media screen and (max-width: 480px) {
-  h3{
-    width: 100%;
-  }
-  .OSCSS-content-box-inner{
-    padding: 20px;
-  }
+
+.company-table th {
+  width: 30%;
+  color: var(--text-muted, #94a3b8);
+  font-weight: 600;
+}
+
+.company-table td {
+  color: var(--text-primary, #f8fafc);
 }

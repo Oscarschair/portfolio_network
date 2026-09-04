@@ -1,75 +1,79 @@
 @extends('layouts.app')
+
 @section('content')
-<link href="{{ asset('css/register.css') }}?<?php echo date('Ymd-Hi'); ?>" rel="stylesheet">
-<script src="{{ asset('js/register.js') }}?v={{ time() }}" defer></script>
+<link href="{{ asset('css/register.css') }}?v={{ time() }}" rel="stylesheet">
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="OSCSS-content-box-inner">
-            <div class="card" style="margin-top:20px;">
-                <div class="card-header">{{ __('auth.register') }}</div>
-                <div class="card-body">
-                    <div class="form-group row mt-2">
-                        <div class="OSCSS-socialLoginList">
-                            <a href="/login/google" class="btn btn-forGoogle" role="button">
-                                <img src="img/google_logo.png" width="20" height="20"/><span style="margin-left:20px;">Googleで登録</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="OSCSS-register-line"><span>または</span></div>
-
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('auth.email') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('auth.password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('auth.Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-                        <input class="form-check-input" type="checkbox" name="terms" id="terms" required>
-                        <label class="form-check-label" for="terms">
-                          <a href="{{route('terms')}}">利用規約</a>および<a href="{{route('privacypolicy')}}">プライバシーポリシー</a>の内容に同意し、登録します。
-                        </label>
-                        <div class="form-group row mb-0" style="margin-top: 10px;">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('auth.register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <div class="auth-card-header">
+            <h1 class="auth-card-title">{{ __('auth.register') }}</h1>
+            <p class="auth-card-subtitle">才能を発信し、新しいチャンスと繋がろう</p>
         </div>
+
+        <!-- Google Social Signup -->
+        <a href="/login/google" class="btn-google" role="button">
+            <img src="{{ asset('img/google_logo.png') }}" width="20" height="20" alt="Google"/>
+            <span>Google で登録</span>
+        </a>
+
+        <div class="auth-divider">
+            <span>またはメールアドレスで登録</span>
+        </div>
+
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <!-- Email Field -->
+            <div class="auth-form-group">
+                <label for="email" class="auth-label">{{ __('auth.email') }}</label>
+                <input id="email" type="email" class="auth-input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="name@example.com">
+
+                @error('email')
+                    <span class="auth-error" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <!-- Password Field -->
+            <div class="auth-form-group">
+                <label for="password" class="auth-label">{{ __('auth.password') }}</label>
+                <input id="password" type="password" class="auth-input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="8文字以上の半角英数字">
+
+                @error('password')
+                    <span class="auth-error" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+            <!-- Password Confirmation Field -->
+            <div class="auth-form-group">
+                <label for="password-confirm" class="auth-label">{{ __('auth.Confirm Password') }}</label>
+                <input id="password-confirm" type="password" class="auth-input" name="password_confirmation" required autocomplete="new-password" placeholder="もう一度パスワードを入力">
+            </div>
+
+            <!-- Terms & Privacy Policy Checkbox -->
+            <div class="auth-terms">
+                <label class="auth-terms-label" for="terms">
+                    <input type="checkbox" name="terms" id="terms" required>
+                    <span>
+                        <a href="{{ route('terms') }}" target="_blank">利用規約</a> および <a href="{{ route('privacypolicy') }}" target="_blank">プライバシーポリシー</a> に同意の上、登録します。
+                    </span>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-auth-submit">
+                {{ __('auth.register') }}（無料）
+            </button>
+
+            <!-- Bottom Login Link -->
+            <div class="auth-footer-links">
+                <span>既にアカウントをお持ちですか？</span>
+                <a href="{{ route('login') }}">{{ __('auth.Login') }}</a>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

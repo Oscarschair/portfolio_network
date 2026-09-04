@@ -5,10 +5,9 @@
 <link href="{{ asset('css/terms.css') }}" rel="stylesheet">
 <div class="container">
 <div class="justify-content-center">
-  <div class="OSCSS-content-box">
-    <div class="OSCSS-content-box-inner">
-      <h2 class="animate-box-up">利用規約</h2>
-      <hr>
+  <div class="doc-card animate-box-up">
+    <div class="doc-content">
+      <h1 class="doc-title">利用規約</h1>
       <p>Portfolio Network（以下「本サービス」）の利用につきましては、本利用規約（以下「本規約」）に必ず同意のうえご利用ください。</p>
       <h3>第1条 利用規約の適用</h3>
       <p>本規約は、本サービスの運営者（以下「事務局」）と、本サービスを利用する全てのお客様（以下「利用者」）との間の一切の関係に適用されます。<br>

@@ -157,18 +157,15 @@
                     </ul>
                 </nav>
                 <nav class="sp-only">
-                    <div></div>
                     <ul>
                         <li><a class="OSCSS-footer-item" href="{{route('guide')}}">ご利用ガイド</a></li>
                         <li><a class="OSCSS-footer-item" href="{{route('contact')}}">お問い合わせ</a></li>
-                    </ul>
-                    <ul>
                         <li><a class="OSCSS-footer-item" href="{{route('company')}}">運営について</a></li>
                         <li><a class="OSCSS-footer-item" href="{{route('terms')}}">利用規約</a></li>
                         <li><a class="OSCSS-footer-item" href="{{route('privacypolicy')}}">プライバシーポリシー</a></li>
                     </ul>
                 </nav>
-                <div class="OSCSS-footer-rights">&copy; 2021 <a href="http://oscarchair.jp">OSCARCHAIR.JP</a> ALL RIGHTS RESERVED.</div>
+                <div class="OSCSS-footer-rights">&copy; {{ date('Y') }} <a href="https://oscarchair.jp" target="_blank" rel="noopener noreferrer">OSCARCHAIR.JP</a> ALL RIGHTS RESERVED.</div>
             </div>
         </footer>
     </div>

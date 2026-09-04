@@ -1,35 +1,47 @@
-/* ========================================
-    Header Modernization
-========================================= */
+/* ==========================================================================
+   Header & Navigation Modernization (Portfolio Network 2026)
+   ========================================================================== */
 #header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: 72px;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+}
+
+#header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-md);
 }
 
 #header-block {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 #logo {
-  height: 36px;
+  height: 38px;
   width: auto;
   display: block;
+  transition: transform var(--transition-fast);
+}
+
+.OSCSS-brand:hover #logo {
+  transform: scale(1.03);
 }
 
 .OSCSS-brand {
@@ -41,7 +53,6 @@
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 .OSCSS-nav {
@@ -51,69 +62,88 @@
 }
 
 .OSCSS-nav-item {
-  font-size: 0.9rem;
+  font-size: 14px;
   font-weight: 600;
-  color: #475569;
-  padding: 10px 20px;
-  border-radius: 12px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-body);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
   text-decoration: none;
   white-space: nowrap;
 }
 
 .OSCSS-nav-item:hover {
+  color: var(--color-primary);
   background: rgba(79, 70, 229, 0.08);
-  color: #4F46E5;
+}
+
+/* Specific Action Buttons in Nav */
+.OSCSS-nav-item[href*="login"] {
+  color: var(--color-primary);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  background: #FFFFFF;
+}
+
+.OSCSS-nav-item[href*="login"]:hover {
+  background: rgba(79, 70, 229, 0.06);
+  border-color: var(--color-primary);
   transform: translateY(-1px);
 }
 
-.OSCSS-nav-item[href*="login"] {
-  color: #4F46E5;
+.OSCSS-nav-item[href*="register"] {
+  background: var(--color-gradient);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  border: 1px solid transparent;
 }
 
-.OSCSS-nav-item[href*="register"] {
-  background: #4F46E5;
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+.OSCSS-nav-item[href*="register"]:hover {
+  background: var(--color-gradient-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
 }
 
 #OSCSS-nav-search {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
   cursor: pointer;
-  background: transparent;
-  transition: all 0.2s ease;
+  background: #F1F5F9;
+  transition: all var(--transition-fast);
 }
 
 #OSCSS-nav-search:hover {
-  background: rgba(0,0,0,0.04);
+  background: #E2E8F0;
+  transform: scale(1.05);
 }
 
 #OSCSS-nav-search img {
-  width: 20px;
-  height: 20px;
-  opacity: 0.8;
+  width: 18px;
+  height: 18px;
+  opacity: 0.75;
 }
 
+/* Search Overlay */
 #OSCSS-searcher {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
   padding: 20px 0;
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-8px);
+  transition: all var(--transition-normal);
   pointer-events: none;
+  box-shadow: var(--shadow-lg);
 }
 
 #OSCSS-searcher.active {
@@ -126,7 +156,7 @@
 #GlobalSearcher {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   justify-content: center;
 }
@@ -134,65 +164,44 @@
 #keyword {
   width: 100%;
   max-width: 600px;
-  border: 1px solid rgba(0,0,0,0.1);
-  background: rgba(0,0,0,0.03);
-  padding: 12px 25px;
-  border-radius: 999px;
-  font-size: 1rem;
+  border: 1.5px solid var(--border-color);
+  background: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-size: 15px;
+  color: var(--text-main);
   outline: none;
-  transition: all 0.3s ease;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
 }
 
 #keyword:focus {
-  background: #ffffff;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px var(--primary-glow);
-}
-
-@media screen and (max-width: 768px) {
-  #GlobalSearcher {
-    padding: 0 15px;
-  }
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-glow);
 }
 
 /* Mobile Adjustments */
-@media screen and (max-width: 1100px) {
-  .header-nav-bottom {
-    display: none;
-  }
-}
-
-
 @media screen and (max-width: 768px) {
   #header-block {
-    padding: 0 15px;
+    padding: 0 16px;
+  }
+  #GlobalSearcher {
+    padding: 0 16px;
   }
 }
 
 @media screen and (max-width: 480px) {
   #header {
-    height: 60px;
+    height: 64px;
   }
-  
+  #logo {
+    height: 32px;
+  }
+  .OSCSS-nav {
+    gap: 8px;
+  }
   .OSCSS-nav-item {
-    font-size: 0.85rem;
+    font-size: 13px;
     padding: 6px 12px;
   }
-}
-
-/* Hamburger - only for very small screens or extra menu */
-.hamburger {
-  width: 30px;
-  height: 30px;
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 100%;
-  height: 2px;
-  background: #1E293B;
-  border-radius: 2px;
 }
