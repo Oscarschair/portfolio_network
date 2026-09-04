@@ -60,34 +60,52 @@ class LoginController extends Controller
 
     public function handleGoogleCallback()
     {
-        // Google 認証後の処理
-        $gUser = Socialite::driver('google')->stateless()->user();
+        try {
+            // Google 認証後の処理
+            $gUser = Socialite::driver('google')->stateless()->user();
 
-        // email が合致するユーザーを取得
-        $user = User::where('email', $gUser->email)->first();
-        // 見つからなければ新しくユーザーを作成
-        if ($user == null) {
-            $user = $this->createUserByGoogle($gUser);
+            if (!$gUser || empty($gUser->getEmail())) {
+                return redirect()->route('login')->with('error', 'Googleアカウントのメールアドレスを取得できませんでした。');
+            }
 
-	    DB::table('users')
-            ->where('id', $user->id)
-            ->update(['email_verified_at' => DB::raw('NOW()')]);
+            // email が合致するユーザーを取得
+            $user = User::where('email', $gUser->getEmail())->first();
+
+            // 未登録の場合は自動登録
+            if ($user === null) {
+                $user = $this->createUserByGoogle($gUser);
+            } else {
+                // すでに登録済みでメール未認証の場合は、Google認証済みとして認証日時に更新
+                if ($user->email_verified_at === null) {
+                    $user->email_verified_at = now();
+                    $user->save();
+                }
+            }
+
+            // ログイン処理（ログイン状態を保持）
+            \Auth::login($user, true);
+
+            // 前回ログイン方法をCookieに保存してリダイレクト
+            return redirect('/')->withCookie(cookie('last_login_method', 'google', 60 * 24 * 365, null, null, false, false));
+        } catch (\Exception $e) {
+            \Log::error('Google OAuth Login Error: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString()
+            ]);
+            return redirect()->route('login')->with('error', 'Googleログインに失敗しました。もう一度お試しください。');
         }
-        // ログイン処理
-        \Auth::login($user, true);
-
-        // 前回ログイン方法をCookieに保存してリダイレクト
-        return redirect('/')->withCookie(cookie('last_login_method', 'google', 60 * 24 * 365, null, null, false, false));
     }
 
     public function createUserByGoogle($gUser)
     {
+        $name = $gUser->getName() ?: explode('@', $gUser->getEmail())[0];
+
         $user = User::create([
-            'name'     => $gUser->name,
-            'email'    => $gUser->email,
-            'password' => \Hash::make(uniqid()),
+            'name'              => $name,
+            'email'             => $gUser->getEmail(),
+            'password'          => \Hash::make(uniqid('g_', true) . rand(10000, 99999)),
+            'email_verified_at' => now(),
         ]);
-        
+
         return $user;
     }
 
