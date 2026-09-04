@@ -47,7 +47,7 @@
     {{-- OGPを設定 end --}}
     
     <!-- google client -->    
-    <meta name="google-signin-client_id" content="961559768869-s907dpkfdt8rk9atkqvccu16oprit7sk.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="903228382685-jdp0u90pv06uklq96qriqrsevtvhcilh.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- Scripts -->
